@@ -1,0 +1,2 @@
+# awesome
+Dotfiles for awesomewm
