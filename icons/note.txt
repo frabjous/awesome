@@ -1,0 +1,3 @@
+Converted via:
+cd /usr/share/awesome/themes/zenburn/layouts
+for file in *.png ; do convert $file -fuzz 30% -fill '#8f5ac9' +opaque 'none' ~/.config/awesome/icons/$file ; done
