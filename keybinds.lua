@@ -123,7 +123,7 @@ globalkeys = gears.table.join(
     -- super c to launch browser with default profile
     awful.key({ RC.vars.modkey }, "c", function ()
             awful.spawn(RC.vars.browser ..
-            ' --new-window --profile ' os.getenv("HOME") ..
+            ' --new-window --profile ' .. os.getenv("HOME") ..
             '/.mozilla/firefox/default')
         end,
         { description = "browser", group = "Super" }
