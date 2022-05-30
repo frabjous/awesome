@@ -225,8 +225,8 @@ _M.mpdtogglemenu = awful.menu({ items = {
     { "show lyrics", "kitty --class info_term -e currentlyrics.sh" },
     { "browse music", "kitty --start-as fullscreen " ..
         "--class music_browse -e musicbrowse.sh" },
-    { "media player page", RC.vars.browser .. " --new-window --profile" ..
-        " /home/kck/.mozilla/firefox/hiddenui http://localhost:7306/" }
+    { "media player page", RC.vars.browser .. " --new-window --profile " ..
+        os.getenv("HOME") .. "/.mozilla/firefox/hiddenui http://localhost:7306/" }
 }})
 
 local spacey = wibox.widget({
@@ -533,7 +533,7 @@ musicbrowsew:buttons(gears.table.join(
     awful.button({}, 3, nil, function() -- right click for browser
         awful.spawn(
             RC.vars.browser .. ' --new-window --profile ' ..
-                '/home/kck/.mozilla/firefox/hiddenui ' ..
+                os.getenv("HOME") .. /.mozilla/firefox/hiddenui ' ..
                 'http://localhost:7306/'
         )
     end)

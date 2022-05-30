@@ -5,7 +5,7 @@
 
 local function set_wallpaper(s)
     -- get random wallpaper file
-    local proc = io.popen("find /home/kck/images/wallpaper -type f | shuf -n 1")
+    local proc = io.popen("find " .. os.getenv("HOME") .. "/images/wallpaper -type f | shuf -n 1")
     wallpaper = proc:read("*a")
     proc:close()
     -- remove newlines at end of output
