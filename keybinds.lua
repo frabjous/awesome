@@ -123,14 +123,15 @@ globalkeys = gears.table.join(
     -- super c to launch browser with default profile
     awful.key({ RC.vars.modkey }, "c", function ()
             awful.spawn(RC.vars.browser ..
-            ' --new-window --profile /home/kck/.mozilla/firefox/default')
+            ' --new-window --profile ' os.getenv("HOME") ..
+            '/.mozilla/firefox/default')
         end,
         { description = "browser", group = "Super" }
     ),
     -- control super o to open Outlook firefox window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "o", function()
             awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                '/home/kck/.mozilla/firefox/hiddenui ' ..
+                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'https://outlook.office365.com/mail/inbox/')
         end,
         { description = "outlook", group = "Ctrl-Super" }
@@ -138,14 +139,14 @@ globalkeys = gears.table.join(
     -- control super y to open Outlook firefox window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "y", function()
             awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                '/home/kck/.mozilla/firefox/hiddenui https://youtube.com')
+                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui https://youtube.com')
         end,
         { description = "youtube", group = "Ctrl-Super" }
     ),
     -- control super z to open Zoom firefox window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "z", function()
             awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                '/home/kck/.mozilla/firefox/hiddenui ' ..
+                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'https://umass-amherst.zoom.com')
         end,
         { description = "zoom", group = "Ctrl-Super" }
@@ -153,7 +154,7 @@ globalkeys = gears.table.join(
     -- control super m to open Zoom firefox window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "m", function()
             awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                '/home/kck/.mozilla/firefox/hiddenui ' ..
+                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'http://localhost:7306/')
         end,
         { description = "media server", group = "Ctrl-Super" }
@@ -204,7 +205,7 @@ globalkeys = gears.table.join(
     -- super s for rofi launcher
     awful.key({ RC.vars.modkey }, "t", function()
             awful.spawn(RC.vars.terminal .. ' -e nvim ' ..
-                '/home/kck/tmp/test.tex')
+                os.getenv("HOME") .. '/tmp/test.tex')
         end,
         { description = "latex test", group = "Super" }
     ),

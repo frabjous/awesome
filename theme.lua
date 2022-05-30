@@ -10,7 +10,7 @@ local themes_path  = gfs.get_themes_dir()
 local iconpath     = os.getenv("HOME") .. "/.config/awesome/icons/"
 local theme = {}
 
-theme.kckcolors = {
+theme.themecolors = {
   black   = "#131518",
   gray1   = "#303236",
   gray2   = "#4d5053",
@@ -34,27 +34,27 @@ theme.font          = "Oswald 10"
 theme.medfont       = "Oswald 11"
 theme.largerfont    = "Sans 12"
 
-theme.bg_normal     = theme.kckcolors.gray1
-theme.bg_focus      = theme.kckcolors.black
-theme.bg_urgent     = theme.kckcolors.red
-theme.bg_minimize   = theme.kckcolors.gray3
+theme.bg_normal     = theme.themecolors.gray1
+theme.bg_focus      = theme.themecolors.black
+theme.bg_urgent     = theme.themecolors.red
+theme.bg_minimize   = theme.themecolors.gray3
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = theme.kckcolors.gray6
-theme.fg_focus      = theme.kckcolors.white
-theme.fg_urgent     = theme.kckcolors.white
-theme.fg_minimize   = theme.kckcolors.gray5
+theme.fg_normal     = theme.themecolors.gray6
+theme.fg_focus      = theme.themecolors.white
+theme.fg_urgent     = theme.themecolors.white
+theme.fg_minimize   = theme.themecolors.gray5
 
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(3)
-theme.border_normal = theme.kckcolors.black
-theme.border_focus  = theme.kckcolors.blue
-theme.border_marked = theme.kckcolors.orange
+theme.border_normal = theme.themecolors.black
+theme.border_focus  = theme.themecolors.blue
+theme.border_marked = theme.themecolors.orange
 
 -- Generate Awesome icon:
 --theme.awesome_icon = theme_assets.awesome_icon(
 --    theme.menu_height, theme.bg_focus, theme.fg_focus
---    theme.menu_height, theme.kckcolors.green, theme.bg_normal
+--    theme.menu_height, theme.themecolors.green, theme.bg_normal
 --)
 theme.awesome_icon = os.getenv("HOME") ..
     '/.config/awesome/icons/awesome.png'
@@ -68,46 +68,46 @@ theme.icon_theme = 'ePapirus'
 theme.master_width_factor = 0.6
 
 
--- kck additions: main categories
+-- my additions: main categories
 
 -- main theme highlight
-theme.accent              = theme.kckcolors.blue
-theme.secondary_highlight = theme.kckcolors.green
+theme.accent              = theme.themecolors.blue
+theme.secondary_highlight = theme.themecolors.green
 theme.icon_color          = theme.accent
 
 -- update status
-theme.all_ok              = theme.kckcolors.green
+theme.all_ok              = theme.themecolors.green
 
 -- mpd artist, update postpone
-theme.info_color = theme.kckcolors.yellow
+theme.info_color = theme.themecolors.yellow
 
 -- critical wibox icons
-theme.fg_alert = theme.kckcolors.red
+theme.fg_alert = theme.themecolors.red
 
 -- clipboard icon, should be silverish?
-theme.clipboard_icon = theme.kckcolors.gray6
+theme.clipboard_icon = theme.themecolors.gray6
 
 -- dropdown icons
-theme.dropdown_icon = theme.kckcolors.gray6
+theme.dropdown_icon = theme.themecolors.gray6
 
 -- powerline and other separators
-theme.separator_color  = theme.kckcolors.gray3
-theme.separator_accent = theme.kckcolors.black
+theme.separator_color  = theme.themecolors.gray3
+theme.separator_accent = theme.themecolors.black
 
 -- calendar day boxes
-theme.cal_days = theme.kckcolors.gray5
+theme.cal_days = theme.themecolors.gray5
 
----- end kck additions
+---- end my additions
 
 -- TAGLIST
-theme.taglist_fg_occupied = theme.kckcolors.black
+theme.taglist_fg_occupied = theme.themecolors.black
 theme.taglist_bg_occupied = theme.bg_normal
-theme.taglist_fg_empty    = theme.kckcolors.gray1
-theme.taglist_bg_empty    = theme.kckcolors.gray4
-theme.taglist_fg_focus    = theme.kckcolors.black
+theme.taglist_fg_empty    = theme.themecolors.gray1
+theme.taglist_bg_empty    = theme.themecolors.gray4
+theme.taglist_fg_focus    = theme.themecolors.black
 theme.taglist_bg_focus    = theme.bg_normal
-theme.taglist_fg_urgent   = theme.kckcolors.red
-theme.taglist_bg_urgent   = theme.kckcolors.red
+theme.taglist_fg_urgent   = theme.themecolors.red
+theme.taglist_bg_urgent   = theme.themecolors.red
 
 -- square to add to occupied tags (not used)
 theme.taglist_squares_sel   = iconpath .. "squarez.png"
@@ -115,50 +115,50 @@ theme.taglist_squares_unsel = iconpath .. "squarefz.png"
 -- resize taglist squares
 theme.taglist_squares_resize = true
 
--- begin kckadditions
-theme.taglist_shape               = theme.kckcolors.black
-theme.taglist_shape_border        = theme.kckcolors.gray4
+-- begin my additions
+theme.taglist_shape               = theme.themecolors.black
+theme.taglist_shape_border        = theme.themecolors.gray4
 theme.taglist_shape_border_focus  = theme.accent
-theme.taglist_index_empty         = theme.kckcolors.gray5
-theme.taglist_index_occupied      = theme.kckcolors.white
+theme.taglist_index_empty         = theme.themecolors.gray5
+theme.taglist_index_occupied      = theme.themecolors.white
 theme.taglist_bg_hover            = theme.accent
--- end kckadditions
+-- end my additions
 
 -- TASKLIST
-theme.tasklist_fg_normal                    = theme.kckcolors.gray5
-theme.tasklist_bg_normal                    = theme.kckcolors.black
+theme.tasklist_fg_normal                    = theme.themecolors.gray5
+theme.tasklist_bg_normal                    = theme.themecolors.black
 theme.tasklist_bg_minimize                  = theme.bg_normal
-theme.tasklist_fg_minimize                  = theme.kckcolors.gray4
-theme.tasklist_icon_color_minimize          = theme.kckcolors.gray5
-theme.tasklist_bg_focus                     = theme.kckcolors.black
-theme.tasklist_fg_focus                     = theme.kckcolors.white
-theme.tasklist_bg_urgent                    = theme.kckcolors.red
-theme.tasklist_fg_urgent                    = theme.kckcolors.black
-theme.tasklist_shape_border_color_focus     = theme.kckcolors.blue
-theme.tasklist_shape_border_color_minimized = theme.kckcolors.black
-theme.tasklist_shape_border_color_urgent    = theme.kckcolors.yellow
+theme.tasklist_fg_minimize                  = theme.themecolors.gray4
+theme.tasklist_icon_color_minimize          = theme.themecolors.gray5
+theme.tasklist_bg_focus                     = theme.themecolors.black
+theme.tasklist_fg_focus                     = theme.themecolors.white
+theme.tasklist_bg_urgent                    = theme.themecolors.red
+theme.tasklist_fg_urgent                    = theme.themecolors.black
+theme.tasklist_shape_border_color_focus     = theme.themecolors.blue
+theme.tasklist_shape_border_color_minimized = theme.themecolors.black
+theme.tasklist_shape_border_color_urgent    = theme.themecolors.yellow
 theme.tasklist_align                        = "center"
 
 -- background on hover
-theme.tasklist_bg_hover    = theme.kckcolors.blue
-theme.tasklist_icon_hover  = theme.kckcolors.white
-theme.tasklist_text_hover  = theme.kckcolors.black
+theme.tasklist_bg_hover    = theme.themecolors.blue
+theme.tasklist_icon_hover  = theme.themecolors.white
+theme.tasklist_text_hover  = theme.themecolors.black
 -- color of small icons next to name for special windows
-theme.tasklist_extra_info  = theme.kckcolors.gray3
+theme.tasklist_extra_info  = theme.themecolors.gray3
 
 -- disable additions to task names (reimplement my own?)
 theme.tasklist_plain_task_name = true
 
--- begin kck additions
-theme.tasklist_shape_border = theme.kckcolors.gray4
--- end kck additions
+-- begin my additions
+theme.tasklist_shape_border = theme.themecolors.gray4
+-- end my additions
 
 -- switcher tasklist
-theme.switcher_border_color      = theme.kckcolors.cyan
-theme.switcher_bg                = theme.kckcolors.gray5
-theme.switcher_item_focus_border = theme.kckcolors.green
+theme.switcher_border_color      = theme.themecolors.cyan
+theme.switcher_bg                = theme.themecolors.gray5
+theme.switcher_item_focus_border = theme.themecolors.green
 theme.switcher_font              = "Oswald 20"
-theme.switcher_fg_focus          = theme.kckcolors.green
+theme.switcher_fg_focus          = theme.themecolors.green
 
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
@@ -173,7 +173,7 @@ theme.prompt_font = "Fira Code 12"
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
-theme.notification_bg           = theme.kckcolors.black
+theme.notification_bg           = theme.themecolors.black
 theme.notification_font         = "Oswald 16"
 theme.notification_border_color = theme.notification_bg
 theme.notification_border_width = 0

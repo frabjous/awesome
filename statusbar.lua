@@ -533,7 +533,7 @@ musicbrowsew:buttons(gears.table.join(
     awful.button({}, 3, nil, function() -- right click for browser
         awful.spawn(
             RC.vars.browser .. ' --new-window --profile ' ..
-                os.getenv("HOME") .. /.mozilla/firefox/hiddenui ' ..
+                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'http://localhost:7306/'
         )
     end)

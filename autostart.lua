@@ -4,6 +4,7 @@
 --local lain  = require("lain")
 
 local host = awesome.hostname
+local username = os.getenv("USER")
 
 if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 
@@ -11,10 +12,12 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
         'kitty --class info_term -e send-ip.sh', {}
     )
 
-    if ((host == "kck-home") or (host == "kck-work")) then
+    if ((host == username .. "-home") or
+        (host == username .. "-work")) then
         -- start outlook
         awful.spawn.once(RC.vars.browser .. ' --new-window ' ..
-            '--profile /home/kck/.mozilla/firefox/hiddenui ' ..
+            '--profile ' .. os.getenv("HOME") ..
+            '/.mozilla/firefox/hiddenui ' ..
             'https://outlook.office365.com/mail/inbox/',
         -- rules
             { screen = RC.startscreen, tag = "1" }
@@ -27,14 +30,14 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             callback = function()
                 awful.spawn.once(
                     RC.vars.browser .. ' --new-window --profile ' ..
-                        '/home/kck/.mozilla/firefox/hiddenui ' ..
-                        'https://youtube.com',
+                        os.getenv("HOME") .. '/.mozilla/firefox/hiddenui '
+                        .. 'https://youtube.com',
                     { screen = RC.startscreen, tag = "1" }
                 )
             end
         })
     end
-    if (host == "kck-laptop") then
+    if (host == username .. "-laptop") then
         awful.spawn.once (
             RC.vars.browser .. ' "https://logic.umasscreate.net"', {}
         )
