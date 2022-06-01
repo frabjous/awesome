@@ -1019,9 +1019,9 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytextclock = wibox.widget.textclock(
         '<span foreground="' .. beautiful.icon_color .. 
         '" font_family="Symbols Nerd Font" font_size="14pt"> </span>' ..
-        '%a %b %d <span foreground="' .. beautiful.icon_color .. '" ' ..
+        '%a %b %-d <span foreground="' .. beautiful.icon_color .. '" ' ..
         'font_family="Symbols Nerd Font" font_size="14pt"></span> ' ..
-        '%_I:%M%P'
+        '%-I:%M%P'
     )
 
     --  update at mousein
