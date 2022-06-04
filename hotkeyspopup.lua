@@ -228,6 +228,12 @@ local myhotkeys = {
                 }
             },
             {
+                modifiers = { alt, ctrl },
+                keys = {
+                    t = 'fzf open (home)'
+                }
+            },
+            {
                 modifiers = { alt, shift },
                 keys = {
                     q        = 'force quit',
@@ -249,11 +255,12 @@ local myhotkeys = {
                     h         = 'jump last edit',
                     j         = 'join lines',
                     k         = 'kill remainder',
+                    l         = 'get citation key',
                     n         = 'normal mode',
                     q         = 'quit',
                     r         = 'replace',
                     s         = 'save',
-                    t         = 'fzf open',
+                    t         = 'fzf open (cwd)',
                     v         = 'paste',
                     w         = 'toggle wrap',
                     x         = 'cut/cut line',
