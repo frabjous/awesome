@@ -39,6 +39,7 @@
      {"Chromium", "/usr/bin/chromium ", "/usr/share/icons/hicolor/16x16/apps/chromium.png" },
      {"Falkon", "falkon ", "/usr/share/icons/hicolor/16x16/apps/falkon.png" },
      {"Firefox", "/usr/lib/firefox/firefox ", "/usr/share/icons/hicolor/16x16/apps/firefox.png" },
+     {"Luakit", "luakit ", "/usr/share/pixmaps/luakit.png" },
      {"qutebrowser", "qutebrowser --untrusted-args ", "/usr/share/icons/hicolor/16x16/apps/qutebrowser.png" },
  }
 
