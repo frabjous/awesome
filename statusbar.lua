@@ -769,9 +769,10 @@ end
 
 -- tasklist items update function
 function update_tasklist_widget(widg, c, index, cc)
+    if not (c.valid) then return end
     local iconcolor = beautiful.icon_color
     local bgcolor = beautiful.tasklist_bg_normal
-    if (c) and (c.minimized) then
+    if (c.minimized) then
         iconcolor = beautiful.tasklist_icon_color_minimize
         bgcolor = beautiful.tasklist_bg_minimize
     end
