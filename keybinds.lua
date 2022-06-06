@@ -594,20 +594,20 @@ clientkeys = gears.table.join(
         { description = "(un)maximize horizontally",
             group = "Shift-Super" }
     ),
-    -- super m to make only showing client on screen
-    awful.key({ RC.vars.modkey }, "m",
-        function(c)
-            local numminimized = 
-                clientactions.make_only_on_screen(c,
-                    awful.screen.focused()
-                )
-            if (numminimized == 0) then
-                clientactions.unmaximize_all_peers(c)
-            end
-        end,
-        { description = "toggle only on screen",
-            group = "Super" }
-    ),
+        -- super m to make only showing client on screen
+        awful.key({ RC.vars.modkey }, "m",
+            function(c)
+                local numminimized = 
+                    clientactions.make_only_on_screen(c,
+                        awful.screen.focused()
+                    )
+                if (numminimized == 0) then
+                    clientactions.unminimize_all_peers(c)
+                end
+            end,
+            { description = "toggle only on screen",
+                group = "Super" }
+        ),
     -- super right bracket focus next client (smart way)
     awful.key({ RC.vars.modkey }, "]",
         function (c)

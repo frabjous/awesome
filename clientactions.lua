@@ -71,7 +71,7 @@ _M.make_only_on_screen = function(c, s)
     return numminimized
 end
 
-_M.unmaximize_all_peers = function(c)
+_M.unminimize_all_peers = function(c)
     local s = c.screen
     for _, t in pairs(s.selected_tags) do
         for _, o in pairs(t:clients()) do
@@ -122,7 +122,7 @@ _M.toggle_showing = function(c)
 
     -- if only thing on screen then unminimize all peers
     if (isonly) then
-        _M.unmaximize_all_peers(c)
+        _M.unminmize_all_peers(c)
         return
     end
 
@@ -264,7 +264,7 @@ _M.the_context_menu = awful.menu({ items = {
                 c.screen
             )
         if (numminimized == 0) then
-            _M.unmaximize_all_peers(c)
+            _M.unminimize_all_peers(c)
         end
     end },
     { "swap with master", function()
