@@ -700,19 +700,23 @@ local arright = wibox.widget {
 
 -- taglist tag update function
 function update_taglist_tag(widg, t, index, tt)
-    local tagbg =
-        widg:get_children_by_id("background_shape")[1]
+    local tagbg = widg:get_children_by_id("background_shape")[1]
     if (tagbg) then
         local selected = t.selected
         if (selected) then
             tagbg.shape_border_color =
                 beautiful.taglist_shape_border_focus
         else
-            tagbg.shape_border_color =
-                beautiful.taglist_shape_border
+            tagbg.shape_border_color = beautiful.taglist_shape_border
         end
     end
-    local occupied = (#t:clients() > 0)
+    local occupied = false
+    for _,c in pairs(t:clients()) do
+        if not (c.skip_taskbar) then
+            occupied = true
+            break
+        end
+    end
     local indexcolor = beautiful.taglist_index_empty
     if (occupied) then
         indexcolor = beautiful.taglist_index_occupied
