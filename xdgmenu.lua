@@ -58,6 +58,7 @@
      {"LibreOffice Impress", "libreoffice --impress ", "/usr/share/icons/hicolor/16x16/apps/libreoffice-impress.png" },
      {"LibreOffice Math", "libreoffice --math ", "/usr/share/icons/hicolor/16x16/apps/libreoffice-math.png" },
      {"LibreOffice Writer", "libreoffice --writer ", "/usr/share/icons/hicolor/16x16/apps/libreoffice-writer.png" },
+     {"LyX", "lyx ", "/usr/share/icons/hicolor/48x48/apps/lyx.png" },
      {"Okular", "okular ", "/usr/share/icons/hicolor/16x16/apps/okular.png" },
      {"TeXstudio", "texstudio ", "/usr/share/icons/hicolor/16x16/apps/texstudio.png" },
      {"TeXworks", "texworks ", "/usr/share/icons/hicolor/48x48/apps/TeXworks.png" },
@@ -83,6 +84,7 @@
  }
 
  local menu52dd1c847264a75f400961bfb4d1c849 = {
+     {"Audacity", "env UBUNTU_MENUPROXY=0 audacity ", "/usr/share/icons/hicolor/16x16/apps/audacity.png" },
      {"DevedeNG", "devede_ng.py"},
      {"HandBrake", "ghb "},
      {"Kdenlive", "kdenlive ", "/usr/share/icons/hicolor/16x16/apps/kdenlive.png" },
