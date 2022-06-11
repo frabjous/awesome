@@ -71,5 +71,7 @@ local scratch = lain.util.quake({
     vert = "bottom"
 })
 
+-- newquake = lain.util.quake({ app = "wezterm", name = "NewQuake", argname = "start --class %s", followtag = true, height = 0.4, width = 0.99, border = 2, horiz = "center", vert = "top" })
+
 -- return dropdowns for access by keybinds
 return { quake = quake, scratch = scratch }
