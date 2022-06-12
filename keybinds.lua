@@ -49,11 +49,11 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous old", group = "Alt-Super" }
     ),
-    -- super W to show menu
-    awful.key({ RC.vars.modkey }, "w", function ()
+    -- super shift W to show menu
+    awful.key({ RC.vars.modkey, "Shift" }, "w", function ()
             RC.mainmenu.mymainmenu:show()
         end,
-        {description = "show main menu", group = "Super" }
+        {description = "show main menu", group = "Shift-Super" }
     ),
 
     -- Layout manipulation
@@ -115,6 +115,12 @@ globalkeys = gears.table.join(
             awful.spawn(RC.vars.terminal .. ' start --class float_term')
         end,
         { description = "floating terminal", group = "Shift-Super" }
+    ),
+    -- super w to open ssh to work
+    awful.key({ RC.vars.modkey }, "w", function()
+            awful.spawn('wezterm ssh work')
+        end,
+        { description = "ssh work", group = "Super" }
     ),
     -- super c to launch browser with default profile
     awful.key({ RC.vars.modkey }, "c", function ()
@@ -268,7 +274,7 @@ globalkeys = gears.table.join(
         awful.key({ RC.vars.modkey, "Shift" }, "`", function()
             RC.dropdowns.scratch:toggle()
         end,
-        { description = "scratchpad", group = "Super" }
+        { description = "scratchpad", group = "Shift-Super" }
     ),
     -- super equals (plus) to decrease master width
     awful.key({ RC.vars.modkey }, "=", function ()
