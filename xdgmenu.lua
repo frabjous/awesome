@@ -20,7 +20,6 @@
 
  local menud334dfcea59127bedfcdbe0a3ee7f494 = {
      {"Briss", "briss", "///usr/share/briss/briss-icon.png" },
-     {"Color Picker for Wayland", "wl-color-picker", "/usr/share/icons/wl-color-picker.png" },
      {"Document Viewer", "evince "},
      {"FontForge", "fontforge ", "/usr/share/icons/hicolor/16x16/apps/org.fontforge.FontForge.png" },
      {"GNU Image Manipulation Program", "gimp-2.10 ", "/usr/share/icons/hicolor/16x16/apps/gimp.png" },
@@ -110,7 +109,6 @@
      {"WezTerm", "wezterm", "/usr/share/icons/hicolor/128x128/apps/org.wezfurlong.wezterm.png" },
      {"XTerm", "xterm", "/usr/share/pixmaps/xterm-color_48x48.xpm" },
      {"dconf Editor", "dconf-editor", "/usr/share/icons/hicolor/16x16/apps/ca.desrt.dconf-editor.png" },
-     {"jgmenu", "jgmenu_run"},
      {"kitty", "kitty", "/usr/share/icons/hicolor/256x256/apps/kitty.png" },
  }
 

@@ -5,10 +5,6 @@
 --local hotkeys_popup = require("hotkeyspopup")
 --local menubar       = require("menubar")
 
--- never show tmux rules
---lib.hotkeys_popup.keys.tmux.add_rules_for_terminal({ rule = { name = { }}})
---require("awful.hotkeys_popup.keys")
-
 -- Menubar configuration
 -- set terminal for those that require it
 menubar.utils.terminal = RC.vars.terminal
@@ -110,13 +106,13 @@ globalkeys = gears.table.join(
     -- Standard program
     -- super return to spawn terminal
     awful.key({ RC.vars.modkey }, "Return", function ()
-            awful.spawn(RC.vars.terminal)
+            awful.spawn(RC.vars.terminal .. ' start')
         end,
         { description = "terminal", group = "Super" }
     ),
     -- super shift return to spawn floating terminal
     awful.key({ RC.vars.modkey, "Shift" }, "Return", function ()
-            awful.spawn(RC.vars.terminal .. ' --class float_term')
+            awful.spawn(RC.vars.terminal .. ' start --class float_term')
         end,
         { description = "floating terminal", group = "Shift-Super" }
     ),
@@ -204,15 +200,15 @@ globalkeys = gears.table.join(
     ),
     -- super s for rofi launcher
     awful.key({ RC.vars.modkey }, "t", function()
-            awful.spawn(RC.vars.terminal .. ' -e nvim ' ..
+            awful.spawn(RC.vars.terminal .. ' start -- nvim ' ..
                 os.getenv("HOME") .. '/tmp/test.tex')
         end,
         { description = "latex test", group = "Super" }
     ),
-    -- super F2 to browse music collection with kitty
+    -- super F2 to browse music collection with terminal
     awful.key({ RC.vars.modkey }, "F2", function()
-            awful.spawn(RC.vars.terminal .. ' --start-as fullscreen ' ..
-                '--class music_browse -e musicbrowse.sh')
+            awful.spawn(RC.vars.terminal ..
+                ' start --class music_browse -- musicbrowse.sh')
         end,
         { description = "browse music", group = "Super" }
     ),

@@ -135,7 +135,7 @@ mpd.widget:buttons(awful.util.table.join(
         RC.statusbar.mpdtogglemenu:toggle()
     end),
     awful.button({}, 2, function() -- middle click
-        awful.spawn("kitty --class info_term -e currentlyrics.sh")
+        awful.spawn("wezterm start --class info_term -- currentlyrics.sh")
     end),
     awful.button({}, 4, function() -- scroll up
         awful.spawn.easy_async("mpc prev",
@@ -180,7 +180,7 @@ mpd.widget.infow:buttons(awful.util.table.join(
         end)
     end),
     awful.button({}, 2, function() -- middle click
-        awful.spawn("kitty --class info_term -e currentlyrics.sh")
+        awful.spawn("wezterm start --class info_term -- currentlyrics.sh")
     end),
     awful.button({}, 3, function()  -- right click
         RC.statusbar.mpdtogglemenu:toggle()
@@ -222,9 +222,10 @@ _M.mpdtogglemenu = awful.menu({ items = {
     { "repeat on",   function() run_n_update("mpc repeat on")   end },
     { "repeat off",  function() run_n_update("mpc repeat off")  end },
     { "clear queue", function() run_n_update("mpc clear")       end },
-    { "show lyrics", "kitty --class info_term -e currentlyrics.sh" },
-    { "browse music", "kitty --start-as fullscreen " ..
-        "--class music_browse -e musicbrowse.sh" },
+    { "show lyrics", "wezterm start --class info_term -- " ..
+        "currentlyrics.sh" },
+    { "browse music", "wezterm start --class music_browse -- " ..
+        musicbrowse.sh" },
     { "media player page", RC.vars.browser .. " --new-window --profile " ..
         os.getenv("HOME") .. "/.mozilla/firefox/hiddenui http://localhost:7306/" }
 }})
@@ -496,8 +497,8 @@ updatestatus.tooltip = awful.tooltip({
 updatestatus:buttons(gears.table.join(
     updatestatus:buttons(),
     awful.button({}, 1, nil, function()
-        awful.spawn(RC.vars.terminal .. ' --class info_term '
-        .. '-e updstatusdelay.sh')
+        awful.spawn(RC.vars.terminal .. ' start --class info_term '
+        .. '-- updstatusdelay.sh')
     end)
 ))
 -- update on mouse enter
@@ -524,10 +525,9 @@ musicbrowsew.tooltip = awful.tooltip({
 -- make it clickable
 musicbrowsew:buttons(gears.table.join(
     musicbrowsew:buttons(),
-    awful.button({}, 1, nil, function() -- left click for kitty browsing
+    awful.button({}, 1, nil, function() -- left click for music browsing
         awful.spawn(
-            'kitty --start-as fullscreen --class music_browse ' ..
-                '-e musicbrowse.sh'
+            'wezterm start --class music_browse -- musicbrowse.sh'
         )
     end),
     awful.button({}, 3, nil, function() -- right click for browser
@@ -1071,38 +1071,45 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytextclock:buttons(),
         -- left click for today's schedule
         awful.button({}, 1, nil, function()
-            awful.spawn('kitty --class info_term -e schedshowdelay.sh')
+            awful.spawn('wezterm start --class info_term -- ' ..
+                schedshowdelay.sh')
         end),
         -- right click for another day's schedule
         awful.button({}, 3, nil, function()
             awful.spawn(
-                'kitty --class info_term -e schedshowdelay.sh another'
+                'wezterm start --class info_term -- ' ..
+                    'schedshowdelay.sh another'
             )
         end),
         -- any modifier + click for scheduling
         awful.button({ RC.vars.modkey }, 1, nil, function()
             awful.spawn(
-                'kitty --class info_term -e schedshowdelay.sh schedule'
+                'wezterm start --class info_term -- schedshowdelay.sh ' ..
+                    'schedule'
             )
         end),
         awful.button({ RC.vars.altkey }, 1, nil, function()
             awful.spawn(
-                'kitty --class info_term -e schedshowdelay.sh schedule'
+                'wezterm start --class info_term -- schedshowdelay.sh ' ..
+                    'schedule'
             )
         end),
         awful.button({ "Shift" }, 1, nil, function()
             awful.spawn(
-                'kitty --class info_term -e schedshowdelay.sh schedule'
+                'wezterm start --class info_term -- schedshowdelay.sh ' ..
+                    'schedule'
             )
         end),
         awful.button({ "Control" }, 1, nil, function()
             awful.spawn(
-                'kitty --class info_term -e schedshowdelay.sh schedule'
+                'wezterm start --class info_term -- schedshowdelay.sh ' ..
+                    'schedule'
             )
         end),
         awful.button({}, 2, nil, function()
             awful.spawn(
-                'kitty --class info_term -e schedshowdelay.sh schedule'
+                'wezterm start --class info_term -- schedshowdelay.sh ' ..
+                    'schedule'
             )
         end)
     ))
