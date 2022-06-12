@@ -225,7 +225,7 @@ _M.mpdtogglemenu = awful.menu({ items = {
     { "show lyrics", "wezterm start --class info_term -- " ..
         "currentlyrics.sh" },
     { "browse music", "wezterm start --class music_browse -- " ..
-        musicbrowse.sh" },
+        "musicbrowse.sh" },
     { "media player page", RC.vars.browser .. " --new-window --profile " ..
         os.getenv("HOME") .. "/.mozilla/firefox/hiddenui http://localhost:7306/" }
 }})
@@ -1072,7 +1072,7 @@ awful.screen.connect_for_each_screen(function(s)
         -- left click for today's schedule
         awful.button({}, 1, nil, function()
             awful.spawn('wezterm start --class info_term -- ' ..
-                schedshowdelay.sh')
+                'schedshowdelay.sh')
         end),
         -- right click for another day's schedule
         awful.button({}, 3, nil, function()
