@@ -397,6 +397,71 @@ local myhotkeys = {
             {
                 modifiers = {},
                 keys = {
+                    ['caps>c']     = 'copy',
+                    ['caps>f']     = 'search',
+                    ['caps>h']     = 'hor. split',
+                    ['caps>k']     = 'clear scrollback',
+                    ['caps>q']     = 'quick select',
+                    ['caps>t']     = 'new tab',
+                    ['caps>v']     = 'paste',
+                    ['caps>w']     = 'close pane',
+                    ['caps>x']     = 'copy mode',
+                    ['caps>z']     = 'zoom pane',
+                    ['caps>space'] = 'launcher',
+                    ['caps>1..5']  = 'focus tab #',
+                    ['caps>0']     = 'reset font size',
+                    ['caps>enter'] = 'new window',
+                    ['caps>F5']    = 'reload config',
+                    ['caps>F11']   = 'fullscreen',
+                    ['caps>\\']    = 'vert split',
+                    ['caps>|']     = 'vert split',
+                    ['caps>-']     = 'decrease font',
+                    ['caps>=']     = 'increase font',
+                    ['caps>+']     = 'increase font',
+                    ['caps>tab']   = 'next tab',
+                    ['caps>]']     = 'next tab',
+                    ['caps>[']     = 'prev tab',
+                    ['caps>pgup']  = 'scroll up',
+                    ['caps>pgdn']  = 'scroll down',
+                    ['caps>→']     = 'focus right',
+                    ['caps>←']     = 'focus left',
+                    ['caps>↑']     = 'focus up',
+                    ['caps>↓']     = 'focus down'
+                }
+            },
+            {
+                modifiers = { ctrl },
+                keys = {
+                    c     = 'copy',
+                    v     = 'paste',
+                    ['0'] = 'reset font',
+                    ins   = 'copy',
+                    ['-'] = 'decrease font',
+                    ['='] = 'increase font',
+                    ['+'] = 'increase font'
+                }
+            },
+            {
+                modifiers = { ctrl, shift },
+                keys = {
+                    c = 'copy',
+                    v = 'paste'
+                }
+            },
+            {
+                modifiers = { shift },
+                keys = {
+                    ins          = 'paste',
+                    pgup         = 'scroll up',
+                    pgdn         = 'scroll down',
+                    ['caps>F']   = 'regex search',
+                    ['caps>K']   = 'clear',
+                    ['caps>T']   = 'new default tab',
+                    ['caps>Tab'] = 'prev tab',
+                    ['caps>→']   = 'resize right',
+                    ['caps>←']   = 'resize left',
+                    ['caps>↑']   = 'resize up',
+                    ['caps>↓']   = 'resize down'
                 }
             }
         }
