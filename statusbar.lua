@@ -797,7 +797,7 @@ function update_tasklist_widget(widg, c, index, cc)
         bgcolor = beautiful.tasklist_bg_minimize
     end
     local cname = c.name
-    if (cname == '~') then cname = '~ kitty' end
+    if (cname == '~') then cname = '~ wezterm' end
     cname = gears.string.xml_escape(cname)
     cn.markup = '<span foreground="' .. namecolor .. '">' .. cname
         .. '</span>'
