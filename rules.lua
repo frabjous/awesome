@@ -72,8 +72,8 @@ awful.rules.rules = {
     }, properties = { sticky = true, ontop = true }},
     -- make music browse full screen
     { rule_any = {
-        class = { "music_browse" }
-    }, properties = { fullscreen = true }},
+        class = { "music_browse", "info_term" }
+    }, properties = { maximized = true, fullscreen = true }},
 
     -- Add titlebars to normal clients and dialogs
     -- (changed to only dialogs)

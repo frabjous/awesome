@@ -53,6 +53,7 @@ function myicon(name, class)
     end
     if ((class:match('^kitty$')) or (class:match('^Alacritty$')) or
         (class:match('^[Uu][Rr][Xx][Vv][Tt]$')) or
+        (name:match('^wezterm')) or (class:match('wezterm$')) or
         (class:match('^xterm$'))) then
         return ''
     end

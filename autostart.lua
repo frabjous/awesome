@@ -9,7 +9,7 @@ local username = os.getenv("USER")
 if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 
     awful.spawn.once(
-        'kitty --class info_term -e send-ip.sh', {}
+        'wezterm start --class info_term -- send-ip.sh', {}
     )
 
     if ((host == username .. "-home") or
@@ -48,8 +48,8 @@ end
 
 -- dropdown terminal
 local quake = lain.util.quake({
-    app = "kitty",
-    argname = "--name %s",
+    app = "wezterm",
+    argname = "start --class %s",
     followtag = true,
     height = 0.4,
     width = 0.99,
@@ -59,10 +59,10 @@ local quake = lain.util.quake({
 
 -- scratchpad
 local scratch = lain.util.quake({
-    app = "kitty",
-    extra = "-e nvim " .. os.getenv("HOME") .. "/notes/scratch.md",
+    app = "wezterm",
+    extra = "-- nvim " .. os.getenv("HOME") .. "/notes/scratch.md",
     name = "QuakeSP",
-    argname = "--name %s",
+    argname = "start --class %s",
     followtag = true,
     height = 0.4,
     width = 0.99,
@@ -70,8 +70,6 @@ local scratch = lain.util.quake({
     horiz = "center",
     vert = "bottom"
 })
-
--- newquake = lain.util.quake({ app = "wezterm", name = "NewQuake", argname = "start --class %s", followtag = true, height = 0.4, width = 0.99, border = 2, horiz = "center", vert = "top" })
 
 -- return dropdowns for access by keybinds
 return { quake = quake, scratch = scratch }
