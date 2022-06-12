@@ -650,7 +650,6 @@ local quitmenu = awful.menu({
     }
 })
 
--- ./ePapirus/24x24/panel/night-light-symbolic.svg
 local quitlauncher = awful.widget.launcher({
     image = os.getenv("HOME") .. "/.config/awesome/icons/shutdown.png",
     menu = quitmenu,
