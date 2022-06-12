@@ -182,6 +182,7 @@ local myhotkeys = {
                 modifiers = {},
                 keys = {
                     ['Tab'] = 'indent/autocomplete',
+                    ['F1']  = 'fzf help search',
                     ['F2']  = 'show syntax',
                     ['F3']  = 'switch window',
                     ['F5']  = 'knap refresh',
@@ -230,6 +231,7 @@ local myhotkeys = {
             {
                 modifiers = { alt, ctrl },
                 keys = {
+                    c = 'colorschemes',
                     t = 'fzf open (home)'
                 }
             },
@@ -384,6 +386,17 @@ local myhotkeys = {
                     ['o']         = 'open recent',
                     ['space']     = 'screen up',
                     ['backspace'] = 'history forward'
+                }
+            }
+        }
+    },
+    wezterm = {
+        abbrev = "w",
+        rules = { class = { 'org.wezfurlong.wezterm' } },
+        modsets = {
+            {
+                modifiers = {},
+                keys = {
                 }
             }
         }
