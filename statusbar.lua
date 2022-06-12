@@ -746,6 +746,14 @@ function update_taglist_tag(widg, t, index, tt)
     end
 end
 
+function fixwname(cname)
+    if (cname == '~') then cname = '~ kitty' end
+    if (cname == 'wezterm ~') then cname = '~ wezterm' end
+    if (cname:match('^wezterm ')) then cname = cname:sub(9) end
+    cname = cname:gsub('$EDITOR',os.getenv('EDITOR'))
+    return cname
+end
+
 -- tasklist widgets set up function
 function init_tasklist_widget(widg, c, index, cc)
     update_tasklist_widget(widg, c, index, cc)
@@ -797,8 +805,7 @@ function update_tasklist_widget(widg, c, index, cc)
         bgcolor = beautiful.tasklist_bg_minimize
     end
     local cname = c.name
-    if (cname == '~') then cname = '~ wezterm' end
-    cname = gears.string.xml_escape(cname)
+    cname = gears.string.xml_escape(fixwname(cname))
     cn.markup = '<span foreground="' .. namecolor .. '">' .. cname
         .. '</span>'
     -- little additions for special windows
