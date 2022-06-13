@@ -84,9 +84,10 @@ globalkeys = gears.table.join(
         end,
         { description = "focus next screen", group = "Super" }
     ),
-    -- super u to jump to urgent client
-    awful.key({ RC.vars.modkey }, "u", awful.client.urgent.jumpto,
-        {description = "focus urgent client", group = "Super" }
+    -- super shift u to jump to urgent client
+    awful.key({ RC.vars.modkey, "Shift" }, "u",
+        awful.client.urgent.jumpto,
+        {description = "focus urgent client", group = "Shift-Super" }
     ),
     -- super tab for client switcher
     awful.key({ RC.vars.modkey }, "Tab",
@@ -204,12 +205,20 @@ globalkeys = gears.table.join(
         end,
         { description = "snippets", group = "Super" }
     ),
-    -- super s for rofi launcher
+    -- super t for latex test file
     awful.key({ RC.vars.modkey }, "t", function()
             awful.spawn(RC.vars.terminal .. ' start -- nvim ' ..
                 os.getenv("HOME") .. '/tmp/test.tex')
         end,
         { description = "latex test", group = "Super" }
+    ),
+    -- super u for rofi unicode chooser
+    awful.key({ RC.vars.modkey }, "u", function()
+            awful.spawn.with_shell("cat $HOME/misc/charpicker/*.csv | rofi " ..
+                "-dmenu -i -matching fuzzy -sort -sorting-method fzf | sed -E " ..
+                "'s/^(.).*/\\1/' | tr -d '\\n' | xsel --clipboard")
+        end,
+        { description = "unicode/emojis", group = "Super" }
     ),
     -- super F2 to browse music collection with terminal
     awful.key({ RC.vars.modkey }, "F2", function()
