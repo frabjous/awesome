@@ -216,7 +216,7 @@ globalkeys = gears.table.join(
     awful.key({ RC.vars.modkey }, "u", function()
             awful.spawn.with_shell("cat $HOME/misc/charpicker/*.csv | rofi " ..
                 "-dmenu -i -matching fuzzy -sort -sorting-method fzf | rg -o " ..
-                "--color=never '^.' | tr -d '\\n' | xsel --clipboard")
+                "--color=never '^\\S*' | tr -d '\\n' | xsel --clipboard")
         end,
         { description = "unicode/emojis", group = "Super" }
     ),
