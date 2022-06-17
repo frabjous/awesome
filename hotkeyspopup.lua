@@ -105,6 +105,44 @@ local myhotkeys = {
             }
         }
     },
+    ion = {
+        abbrev = 'i',
+        rules = { name = { 'wezterm' } },
+        modsets = {
+            {
+                modifiers = { alt },
+                keys = {
+                    b = 'back word',
+                    f = 'forward word',
+                    bsp = 'del word ←',
+                    ['.'] = 'cycle arg',
+                    r = 'clear line'
+                }
+            },
+            {
+                modifiers = { ctrl },
+                keys = {
+                    a = 'start of line',
+                    b = 'back char',
+                    c = 'interrupt',
+                    d = 'eof',
+                    e = 'end of line',
+                    f = 'forward char',
+                    h = 'backspace',
+                    k = 'clear to end',
+                    l = 'clear screen',
+                    n = 'next cmd',
+                    p = 'prev cmd',
+                    r = 'search history ↑',
+                    s = 'search history ↓',
+                    u = 'clear to start',
+                    w = 'del word ←',
+                    x = 'undo',
+                    z = 'pause'
+                }
+            }
+        }
+    },
     kitty = {
         abbrev = 'k',
         rules = { class = { 'kitty' } },
