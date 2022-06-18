@@ -122,7 +122,7 @@ _M.toggle_showing = function(c)
 
     -- if only thing on screen then unminimize all peers
     if (isonly) then
-        _M.unminmize_all_peers(c)
+        _M.unminimize_all_peers(c)
         return
     end
 
