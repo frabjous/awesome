@@ -736,7 +736,7 @@ function update_taglist_tag(widg, t, index, tt)
         local ttt = ''
         local needlb = false
         for _, cl in ipairs(t:clients()) do
-            if not (cl.hidden) and
+            if not (cl.hidden) and (cl.name) and
                 not (cl.skip_taskbar) and (cl.valid) then
                 if (needlb) then
                     ttt = ttt .. '\n'
