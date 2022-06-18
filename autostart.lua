@@ -15,9 +15,13 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
     if ((host == username .. "-home") or
         (host == username .. "-work")) then
         -- start outlook
-        awful.spawn.once(RC.vars.browser .. ' --new-window ' ..
-            '--profile ' .. os.getenv("HOME") ..
-            '/.mozilla/firefox/hiddenui ' ..
+        awful.spawn.once(
+            RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
+            .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+            os.getenv("HOME") .. '/.cache/altqute ' ..
+            --RC.vars.browser .. ' --new-window ' ..
+            --'--profile ' .. os.getenv("HOME") ..
+            --'/.mozilla/firefox/hiddenui ' ..
             'https://outlook.office365.com/mail/inbox/',
         -- rules
             { screen = RC.startscreen, tag = "1" }
@@ -29,8 +33,11 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             autostart = true,
             callback = function()
                 awful.spawn.once(
-                    RC.vars.browser .. ' --new-window --profile ' ..
-                        os.getenv("HOME") .. '/.mozilla/firefox/hiddenui '
+                    RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
+                    .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                    os.getenv("HOME") .. '/.cache/altqute ' ..
+                    --RC.vars.browser .. ' --new-window --profile ' ..
+                    --    os.getenv("HOME") .. '/.mozilla/firefox/hiddenui '
                         .. 'https://youtube.com',
                     { screen = RC.startscreen, tag = "1" }
                 )

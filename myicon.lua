@@ -3,21 +3,26 @@
 function myicon(name, class)
     if ((name:match('YouTube — Mozilla Firefox')) or
         (name:match('YouTube.*qutebrowser')) or
+        (name:match('YouTube$')) or
         (name:match('Picture-in-Picture'))) then
         return ''
     end
     if ((name:match('Outlook — Mozilla Firefox')) or
-        (name:match('Outlook — Mozilla Firefox'))) then
+        (name:match('Outlook$')) or
+        (name:match('Outlook.*qutebrowser'))) then
         return ''
     end
     if ((name:match('Zoom Video Conferencing')) or
         (name:match('Personal Meeting Room')) or
+        (name:match('Zoom$')) or
         (name:match('Zoom.*qutebrowser')) or
         (name:match('Zoom — Mozilla Firefox'))) then
         return ''
     end
     if ((name:match('Local Media — Mozilla Firefox')) or
         (name:match('Pi Media — Mozilla Firefox')) or
+        (name:match('Pi Media$')) or
+        (name:match('Local Media$')) or
         (name:match('Pi Media.*qutebrowser')) or
         (name:match('Local Media.*qutebrowser'))) then
         return ''
