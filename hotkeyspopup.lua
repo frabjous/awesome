@@ -112,6 +112,8 @@ local myhotkeys = {
             {
                 modifiers = { alt },
                 keys = {
+                    ['a>h'] = 'history',
+                    ['a>s'] = 'set',
                     b = 'back word',
                     f = 'forward word',
                     bsp = 'del word ←',
@@ -210,6 +212,164 @@ local myhotkeys = {
                     t = 'set title'
                 }
             }
+        }
+    },
+    qutebrower = {
+        abbrev = 'qb',
+        rules = { class = { 'qutebrowser' } },
+        modsets = {
+            {
+                modifiers = { },
+                keys = {
+                    ['F11'] = 'fullscreen',
+                    ['F5']  = 'reload',
+                    ['F2']  = 'tab-1',
+                    ['F3']  = 'tab+1',
+                    ins     = 'insert mode'
+                }
+            },
+            {
+                modifiers = { alt },
+                keys = {
+                    ['1..9'] = 'tab #',
+                    left     = 'back',
+                    right    = 'forward',
+                    tab      = 'next tab',
+                    ['d>%d'] = 'download',
+                    ['d>x']  = 'cancel dl',
+                    ['d>c']  = 'clear dl',
+                    b        = 'add qmark',
+                    l        = 'load qmark',
+                    g        = 'load bmark tab',
+                    h        = 'hint',
+                    w        = 'detach tab',
+                    s        = 'view source',
+                    a        = 'caret mode',
+                    j        = 'jump to mark',
+                    m        = 'set mark',
+                    space    = 'open'
+                }
+            },
+            {
+                modifiers = { alt, ctrl },
+                keys = {
+                    a    = 'caret line',
+                    b    = 'auto qmark',
+                    g    = 'scroll perc',
+                    i    = 'private',
+                    p    = 'print now',
+                    s    = 'pin tab',
+                    tab  = 'focus last tab',
+                    home = 'homepage'
+                }
+            },
+            {
+                modifiers = { alt, ctrl, shift },
+                keys = {
+                    w   = 'tab close to prev',
+                    q   = 'quit save state',
+                    tab = 'clone tab'
+                }
+            },
+            {
+                modifiers = { alt, shift },
+                keys = {
+                    ['b>b'] = 'bmark list jump',
+                    ['b>q'] = 'bmark list',
+                    tab     = 'prev tab',
+                    ['%']   = 'focus tab',
+                    u       = 'nav up',
+                    ['1']   = 'move tab',
+                    left    = 'back new window',
+                    right   = 'fwd new window',
+                    s       = 'save session'
+                }
+            },
+            {
+                modifiers = { ctrl },
+                keys = {
+                    ['[']    = 'nav prev',
+                    [']']    = 'nav next',
+                    ['=']    = 'zoom in',
+                    ['+']    = 'zoom in',
+                    ['-']    = 'zoom out',
+                    ['0']    = 'zoom reset',
+                    b        = 'add qmark',
+                    f        = 'search',
+                    g        = 'search next',
+                    e        = 'cmd mode',
+                    i        = 'dev tools',
+                    l        = 'load qmark',
+                    o        = 'open',
+                    p        = 'print prev',
+                    q        = 'close tab',
+                    t        = 'new tab',
+                    w        = 'close tab',
+                    y        = 'yank url',
+                    z        = 'reopen tab',
+                    ['n>a']  = 'arch forums',
+                    ['n>t']  = 'tex SE',
+                    ['n>u']  = 'unix SE',
+                    ['n>b']  = 'ask ubuntu',
+                    ['n>r']  = 'reddit',
+                    ['h>i']  = 'hint images',
+                    ['h>a']  = 'hint image tab',
+                    ['h>o']  = 'hint open',
+                    ['h>c']  = 'hint new tab',
+                    ['h>r']  = 'hint rapid',
+                    ['h>g']  = 'hint pr yank',
+                    ['h>b']  = 'hint bgtab',
+                    ['h>d']  = 'hint dl',
+                    ['h>f']  = 'hint tabs',
+                    ['h>e']  = 'hint rapid bg tab',
+                    ['h>t']  = 'hint inputs',
+                    ['h>t']  = 'hint yank url',
+                    ['h>^h'] = 'hint',
+                    ['F4']   = 'stop',
+                    ['F5']   = 'hard reload',
+                    pgup     = 'prev tab',
+                    pgdn     = 'next tab',
+                    esc      = 'passthrough',
+                    space    = 'follow',
+                    left     = 'back',
+                    right    = 'forward',
+                    bksp     = 'back',
+                    tab      = 'next tab',
+                    enter    = 'open window'
+                },
+                {
+                    modifiers = { ctrl, shift },
+                    keys = {
+                        ['F5'] = 'repeat cmd',
+                        a      = 'nav +',
+                        b      = 'bmark add',
+                        e      = 'edit text',
+                        f      = 'search up',
+                        g      = 'prev search',
+                        l      = 'qmark tab load',
+                        o      = 'open new tab',
+                        q      = 'close',
+                        s      = 'follow new tab',
+                        w      = 'close',
+                        x      = 'nav −',
+                        z      = 'reopen window',
+                        tab    = 'prev tab',
+                        ['{']  = 'move tab left',
+                        ['}']  = 'move tab right'
+                    }
+                },
+                {
+                    modifiers = { shift },
+                    keys = {
+                        bksp   = 'back',
+                        ['F5'] = 'hard reload',
+                        left   = 'scroll left',
+                        right  = 'scroll right',
+                        up     = 'scroll up',
+                        down   = 'scroll down'
+                    }
+                }
+            },
         }
     },
     neovim = {
