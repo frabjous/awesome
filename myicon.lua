@@ -2,28 +2,34 @@
 -- determine Awesome Nerd Font Icon to use by Window name and class
 function myicon(name, class)
     if ((name:match('YouTube — Mozilla Firefox')) or
+        (name:match('YouTube.*qutebrowser')) or
         (name:match('Picture-in-Picture'))) then
         return ''
     end
-    if (name:match('Outlook — Mozilla Firefox')) then
+    if ((name:match('Outlook — Mozilla Firefox')) or
+        (name:match('Outlook — Mozilla Firefox'))) then
         return ''
     end
     if ((name:match('Zoom Video Conferencing')) or
         (name:match('Personal Meeting Room')) or
+        (name:match('Zoom.*qutebrowser')) or
         (name:match('Zoom — Mozilla Firefox'))) then
         return ''
     end
     if ((name:match('Local Media — Mozilla Firefox')) or
-        (name:match('Pi Media  — Mozilla Firefox'))) then
+        (name:match('Pi Media — Mozilla Firefox')) or
+        (name:match('Pi Media.*qutebrowser')) or
+        (name:match('Local Media.*qutebrowser'))) then
         return ''
     end
-    if (name:match('^Reddit.*Firefox$')) then
+    if ((name:match('^Reddit.*Firefox$')) or
+        (name:match('^Reddit.*qutebrowser$'))) then
         return '樓' -- cf 
     end
-    if ((name:match('Stack Exchange.*Firefox')) or
-        (name:match('Stack Overflow.*Firefox')) or
-        (name:match('Super User.*Firefox')) or
-        (name:match('Ask Ubuntu.*Firefox'))) then
+    if ((name:match('Stack Exchange')) or
+        (name:match('Stack Overflow')) or
+        (name:match('Super User')) or
+        (name:match('Ask Ubuntu'))) then
         return ''
     end
     if (name:match('nvimpager$')) then
@@ -32,6 +38,9 @@ function myicon(name, class)
     if ((name:match('nvim$')) or (name:match("^wezterm nvim")) or
         (name:match('^wezterm $EDITOR'))) then
         return ''
+    end
+    if (name:match('qutebrowser$')) then
+        return ''--
     end
     if (name:match('Mozilla Firefox$')) then
         return ''
