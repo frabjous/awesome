@@ -25,8 +25,10 @@ _M.myawesomemenu = {
 }
 
 _M.myrunmenu = {
-    { "browser", RC.vars.browser .. ' --new-window --profile ' ..
-        os.getenv("HOME") .. '/.mozilla/firefox/default',
+    { "browser", RC.vars.browser ..
+        ' --target window',
+        --' --new-window --profile ' ..
+        --os.getenv("HOME") .. '/.mozilla/firefox/default',
         icon_loc .. "actions/gtk-connect.svg"
     },
     { "terminal", RC.vars.terminal .. ' start',

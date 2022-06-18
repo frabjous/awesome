@@ -126,48 +126,79 @@ globalkeys = gears.table.join(
     -- super c to launch browser with default profile
     awful.key({ RC.vars.modkey }, "c", function ()
             awful.spawn(RC.vars.browser ..
-            ' --new-window --profile ' .. os.getenv("HOME") ..
-            '/.mozilla/firefox/default')
+            ' --target window'
+            --' --new-window --profile ' .. os.getenv("HOME") ..
+            --'/.mozilla/firefox/default'
+            )
         end,
         { description = "browser", group = "Super" }
     ),
     -- control super o to open Outlook firefox window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "o", function()
-            awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
-                'https://outlook.office365.com/mail/inbox/')
+            awful.spawn(RC.vars.browser ..
+                ' --target window -C ' .. os.getenv("HOME") ..
+                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                os.getenv("HOME") .. '/.cache/altqute ' ..
+                --RC.vars.browser ..
+                --' --new-window --profile ' ..
+                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
+                'https://outlook.office365.com/mail/inbox/'
+            )
         end,
         { description = "outlook", group = "Ctrl-Super" }
     ),
     -- control super y to open Outlook firefox window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "y", function()
-            awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui https://youtube.com')
+            awful.spawn(RC.vars.browser .. 
+                ' --target window -C ' .. os.getenv("HOME") ..
+                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                os.getenv("HOME") .. '/.cache/altqute ' ..
+                --' --new-window --profile ' ..
+                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui' .. 
+                'https://youtube.com'
+            )
         end,
         { description = "youtube", group = "Ctrl-Super" }
     ),
     -- control super z to open Zoom firefox window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "z", function()
-            awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
-                'https://umass-amherst.zoom.com')
+            awful.spawn(RC.vars.browser ..
+                ' --target window -C ' .. os.getenv("HOME") ..
+                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                os.getenv("HOME") .. '/.cache/altqute ' ..            
+                --' --new-window --profile ' ..
+                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
+                'https://umass-amherst.zoom.com'
+            )
         end,
         { description = "zoom", group = "Ctrl-Super" }
     ),
-    -- control super m to open Zoom firefox window with hidden UI
+    -- control super m to open media server window with hidden UI
     awful.key({ RC.vars.modkey, "Control" }, "m", function()
-            awful.spawn(RC.vars.browser .. ' --new-window --profile ' ..
-                os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
-                'http://localhost:7306/')
+            awful.spawn(RC.vars.browser ..
+                ' --target window -C ' .. os.getenv("HOME") ..
+                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                os.getenv("HOME") .. '/.cache/altqute ' ..
+                --' --new-window --profile ' ..
+                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
+                'http://localhost:7306/'
+            )
         end,
         { description = "media server", group = "Ctrl-Super" }
     ),
     -- super alt c to open Chromium
     awful.key({ RC.vars.modkey, RC.vars.altkey }, "c", function()
+            awful.spawn('firefox')
+        end,
+        { description = "firefox", group = "Alt-Super" }
+    ),
+    -- super shift alt c to open Chromium
+    awful.key({ RC.vars.modkey, RC.vars.altkey, "Shift" }, "c", function()
             awful.spawn('chromium')
         end,
-        { description = "chromium", group = "Alt-Super" }
+        { description = "chromium", group = "Alt-Shift-Super" }
     ),
+
     -- super e for editor
     awful.key({ RC.vars.modkey }, "e", function()
             awful.spawn(RC.vars.editor_cmd)

@@ -37,8 +37,8 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
                     .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
                     os.getenv("HOME") .. '/.cache/altqute ' ..
                     --RC.vars.browser .. ' --new-window --profile ' ..
-                    --    os.getenv("HOME") .. '/.mozilla/firefox/hiddenui '
-                        .. 'https://youtube.com',
+                    --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
+                        'https://youtube.com',
                     { screen = RC.startscreen, tag = "1" }
                 )
             end

@@ -18,7 +18,6 @@ awful.rules.rules = {
                 awful.placement.no_offscreen
         }
     },
-
     -- Floating clients.
     { rule_any = {
         instance = {
