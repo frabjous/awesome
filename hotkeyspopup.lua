@@ -299,6 +299,7 @@ local myhotkeys = {
                     g        = 'search next',
                     e        = 'cmd mode',
                     i        = 'dev tools',
+                    k        = 'change url',
                     l        = 'load qmark',
                     o        = 'open',
                     p        = 'print prev',
