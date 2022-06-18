@@ -119,7 +119,7 @@ globalkeys = gears.table.join(
     ),
     -- super w to open ssh to work
     awful.key({ RC.vars.modkey }, "w", function()
-            awful.spawn('wezterm ssh work')
+            awful.spawn('wezterm ssh work -- ion')
         end,
         { description = "ssh work", group = "Super" }
     ),
