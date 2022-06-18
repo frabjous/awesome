@@ -295,6 +295,7 @@ local myhotkeys = {
                     ['-']    = 'zoom out',
                     ['0']    = 'zoom reset',
                     b        = 'add qmark',
+                    d        = 'close tab',
                     f        = 'search',
                     g        = 'search next',
                     e        = 'cmd mode',
