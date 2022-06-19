@@ -8,14 +8,14 @@ local username = os.getenv("USER")
 
 if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 
-    awful.spawn.once(
+    awful.spawn(
         'wezterm start --class info_term -- send-ip.sh', {}
     )
 
     if ((host == username .. "-home") or
         (host == username .. "-work")) then
         -- start outlook
-        awful.spawn.once(
+        awful.spawn(
             RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
             .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
             os.getenv("HOME") .. '/.cache/altqute ' ..
@@ -24,7 +24,10 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             --'/.mozilla/firefox/hiddenui ' ..
             'https://outlook.office365.com/mail/inbox/',
         -- rules
-            { screen = RC.startscreen, tag = "1" }
+            { screen = RC.startscreen, tag = "1" },
+            function(c)
+
+            end
         )
 
         -- start youtube after 55 seconds
