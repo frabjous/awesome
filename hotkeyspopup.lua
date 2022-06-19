@@ -364,11 +364,11 @@ local myhotkeys = {
                     modifiers = { shift },
                     keys = {
                         bksp   = 'back',
-                        ['F5'] = 'hard reload',
-                        left   = 'scroll left',
-                        right  = 'scroll right',
-                        up     = 'scroll up',
-                        down   = 'scroll down'
+                        ['F5'] = 'hard reload'
+                        --left   = 'scroll left',
+                        --right  = 'scroll right',
+                        --up     = 'scroll up',
+                        --down   = 'scroll down'
                     }
                 }
             },
