@@ -1133,18 +1133,12 @@ awful.screen.connect_for_each_screen(function(s)
     local setbg = wibox.widget.background
 
     -- determine if primary; determine autolaunch screen
+    s.isprimary = (s == screen.primary)
     if not (RC.startscreen) then
         RC.startscreen = s
     else
-        for i,v in pairs(s.outputs) do
-            if ((i:match('^DP')) and (awesome.hostname == 'kck-home')) then
-                RC.startscreen = s
-                break
-            end
-            if ((i:match('^DP1')) and (awesome.hostname == 'kck-work')) then
-                RC.startscreen = s
-                break
-            end
+        if (not (s.isprimary)) then
+            RC.startscreen = s
         end
     end
 
