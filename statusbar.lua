@@ -791,6 +791,11 @@ end
 -- tasklist items update function
 function update_tasklist_widget(widg, c, index, cc)
     if not (c.valid) then return end
+    if (((c.name:match('Outlook.*—starter')) or
+        (c.name:match('YouTube.*—starter'))) and
+        not (c.screen == RC.startscreen)) then
+        c.screen = RC.startscreen
+    end
     local iconcolor = beautiful.icon_color
     local bgcolor = beautiful.tasklist_bg_normal
     if (c.minimized) then

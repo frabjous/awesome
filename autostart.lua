@@ -8,14 +8,14 @@ local username = os.getenv("USER")
 
 if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 
-    awful.spawn(
+    awful.spawn.once(
         'wezterm start --class info_term -- send-ip.sh', {}
     )
 
     if ((host == username .. "-home") or
         (host == username .. "-work")) then
         -- start outlook
-        awful.spawn(
+        awful.spawn.once(
             RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
             .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
             os.getenv("HOME") .. '/.cache/altqute ' ..
@@ -30,8 +30,9 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
         gears.timer({
             timeout = 55,
             autostart = true,
+            single_shot = true,
             callback = function()
-                awful.spawn(
+                awful.spawn.once(
                     RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
                     .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
                     os.getenv("HOME") .. '/.cache/altqute ' ..
