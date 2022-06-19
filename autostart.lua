@@ -19,15 +19,11 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
             .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
             os.getenv("HOME") .. '/.cache/altqute ' ..
+            '-s window.title_format "{perc}{current_title}—starter" ' ..
             --RC.vars.browser .. ' --new-window ' ..
             --'--profile ' .. os.getenv("HOME") ..
             --'/.mozilla/firefox/hiddenui ' ..
-            'https://outlook.office365.com/mail/inbox/',
-        -- rules
-            { screen = RC.startscreen, tag = "1" },
-            function(c)
-
-            end
+            'https://outlook.office365.com/mail/inbox/'
         )
 
         -- start youtube after 55 seconds
@@ -35,14 +31,14 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             timeout = 55,
             autostart = true,
             callback = function()
-                awful.spawn.once(
+                awful.spawn(
                     RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
                     .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
                     os.getenv("HOME") .. '/.cache/altqute ' ..
+                    '-s window.title_format "{perc}{current_title}—starter" ' ..
                     --RC.vars.browser .. ' --new-window --profile ' ..
                     --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
-                        'https://youtube.com',
-                    { screen = RC.startscreen, tag = "1" }
+                        'https://youtube.com'
                 )
             end
         })

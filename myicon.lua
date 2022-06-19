@@ -4,11 +4,13 @@ function myicon(name, class)
     if ((name:match('YouTube — Mozilla Firefox')) or
         (name:match('YouTube.*qutebrowser')) or
         (name:match('YouTube$')) or
+        (name:match('YouTube.*starter$')) or
         (name:match('Picture-in-Picture'))) then
         return ''
     end
     if ((name:match('Outlook — Mozilla Firefox')) or
         (name:match('Outlook$')) or
+        (name:match('Outlook.*starter$')) or
         (name:match('Outlook.*qutebrowser'))) then
         return ''
     end

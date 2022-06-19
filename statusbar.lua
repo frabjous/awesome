@@ -759,6 +759,7 @@ function fixwname(cname)
     if (cname == 'wezterm ~') then cname = '~ wezterm' end
     if (cname:match('^wezterm ')) then cname = cname:sub(9) end
     cname = cname:gsub('$EDITOR',os.getenv('EDITOR'))
+    cname = cname:gsub('—starter$','')
     return cname
 end
 

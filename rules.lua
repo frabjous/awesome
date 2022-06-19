@@ -58,7 +58,7 @@ awful.rules.rules = {
             "ConfigManager",
             "pop-up",
         }
-    }, properties = { floating = true }},
+    }, properties = { floating = true } },
     -- make YouTube PiP sticky: on all tags
     { rule_any = {
         name = {
@@ -68,18 +68,21 @@ awful.rules.rules = {
         class = {
             "mpv"
         },
-    }, properties = { sticky = true, ontop = true }},
+    }, properties = { sticky = true, ontop = true } },
     -- make music browse full screen
     { rule_any = {
         class = { "music_browse", "info_term" }
-    }, properties = { maximized = true, fullscreen = true }},
+    }, properties = { maximized = true, fullscreen = true } },
 
     -- Add titlebars to normal clients and dialogs
     -- (changed to only dialogs)
     --{ rule_any = {type = { "normal", "dialog" }
-    { rule_any = {type = { "dialog" }},
+    { rule_any = { type = { "dialog" } },
         properties = { titlebars_enabled = true }
     },
+    { rule_any = { name = { "—starter" } },
+        properties = { screen = RC.startscreen }
+    }
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
