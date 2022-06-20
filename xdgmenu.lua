@@ -43,12 +43,12 @@
  }
 
  local menudf814135652a5a308fea15bff37ea284 = {
-     {"Atril Document Viewer", "atril ", "/usr/share/icons/hicolor/16x16/apps/atril.png" },
      {"Calibre", "calibre --detach ", "/usr/share/icons/hicolor/16x16/apps/calibre-gui.png" },
      {"Document Viewer", "evince "},
      {"E-book editor", "ebook-edit --detach ", "/usr/share/icons/hicolor/16x16/apps/calibre-ebook-edit.png" },
      {"E-book viewer", "ebook-viewer --detach ", "/usr/share/icons/hicolor/16x16/apps/calibre-viewer.png" },
      {"Gnumeric", "gnumeric ", "/usr/share/icons/hicolor/16x16/apps/gnumeric.png" },
+     {"JSignPDF", "jsignpdf", "///usr/share/jsignpdf/jsignpdf-icon.png" },
      {"Kile", "kile ", "/usr/share/icons/hicolor/16x16/apps/kile.png" },
      {"LRF viewer", "lrfviewer ", "/usr/share/icons/hicolor/16x16/apps/calibre-viewer.png" },
      {"LibreOffice", "libreoffice ", "/usr/share/icons/hicolor/16x16/apps/libreoffice-startcenter.png" },
