@@ -25,7 +25,8 @@ local myhotkeys = {
                     f = 'forward word',
                     bsp = 'del word ←',
                     ['.'] = 'cycle arg',
-                    r = 'clear line'
+                    r = 'clear line',
+                    d = 'del word →'-- bash only
                 }
             },
             {
@@ -34,7 +35,7 @@ local myhotkeys = {
                     a = 'start of line',
                     b = 'back char',
                     c = 'interrupt',
-                    d = 'eof',
+                    d = 'eof/del',
                     e = 'end of line',
                     f = 'forward char',
                     h = 'backspace',
@@ -46,8 +47,11 @@ local myhotkeys = {
                     s = 'search history ↓',
                     u = 'clear to start',
                     w = 'del word ←',
+                    y = 'paste deleted',--bash only
                     -- ion only? x = 'undo',
-                    z = 'pause'
+                    z = 'pause',
+                    left = 'word ←',--bash only
+                    right = 'word →'--bash only
                 }
             }
         }
