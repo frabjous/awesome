@@ -11,6 +11,47 @@ local shift = 'Shift'
 local super = 'Mod4'
 
 local myhotkeys = {
+    -- note: bash is same as ion
+    bash = {
+        abbrev = 'b',
+        rules = { name = { 'wezterm' } },
+        modsets = {
+            {
+                modifiers = { alt },
+                keys = {
+                    -- ion only ['a>h'] = 'history',
+                    -- ion only ['a>s'] = 'set',
+                    b = 'back word',
+                    f = 'forward word',
+                    bsp = 'del word ←',
+                    ['.'] = 'cycle arg',
+                    r = 'clear line'
+                }
+            },
+            {
+                modifiers = { ctrl },
+                keys = {
+                    a = 'start of line',
+                    b = 'back char',
+                    c = 'interrupt',
+                    d = 'eof',
+                    e = 'end of line',
+                    f = 'forward char',
+                    h = 'backspace',
+                    k = 'clear to end',
+                    l = 'clear screen',
+                    n = 'next cmd',
+                    p = 'prev cmd',
+                    r = 'search history ↑',
+                    s = 'search history ↓',
+                    u = 'clear to start',
+                    w = 'del word ←',
+                    -- ion only? x = 'undo',
+                    z = 'pause'
+                }
+            }
+        }
+    },
     firefox = {
         abbrev = 'ff',
         rules  = {
@@ -101,46 +142,6 @@ local myhotkeys = {
                     ['F7']        = 'style editor',
                     ['F10']       = 'context menu',
                     ['F5']        = 'profiler'
-                }
-            }
-        }
-    },
-    ion = {
-        abbrev = 'i',
-        rules = { name = { 'wezterm' } },
-        modsets = {
-            {
-                modifiers = { alt },
-                keys = {
-                    ['a>h'] = 'history',
-                    ['a>s'] = 'set',
-                    b = 'back word',
-                    f = 'forward word',
-                    bsp = 'del word ←',
-                    ['.'] = 'cycle arg',
-                    r = 'clear line'
-                }
-            },
-            {
-                modifiers = { ctrl },
-                keys = {
-                    a = 'start of line',
-                    b = 'back char',
-                    c = 'interrupt',
-                    d = 'eof',
-                    e = 'end of line',
-                    f = 'forward char',
-                    h = 'backspace',
-                    k = 'clear to end',
-                    l = 'clear screen',
-                    n = 'next cmd',
-                    p = 'prev cmd',
-                    r = 'search history ↑',
-                    s = 'search history ↓',
-                    u = 'clear to start',
-                    w = 'del word ←',
-                    x = 'undo',
-                    z = 'pause'
                 }
             }
         }
