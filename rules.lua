@@ -93,3 +93,9 @@ awful.rules.rules = {
 --    if c.class == "Firefox" then return false end
 --end, "ewmh")
 
+-- prevent qutebrowser from stealing focus
+awful.ewmh.add_activate_filter(function(c)
+    if c.class == "qutebrowser" then return false end
+end, "ewmh")
+
+
