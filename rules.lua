@@ -94,8 +94,8 @@ awful.rules.rules = {
 --end, "ewmh")
 
 -- prevent qutebrowser from stealing focus
-awful.ewmh.add_activate_filter(function(c)
-    if c.class == "qutebrowser" then return false end
-end, "ewmh")
+--awful.ewmh.add_activate_filter(function(c)
+--    if c.class == "qutebrowser" then return false end
+--end, "ewmh")
 
 
