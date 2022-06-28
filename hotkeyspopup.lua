@@ -26,7 +26,8 @@ local myhotkeys = {
                     bsp = 'del word ←',
                     ['.'] = 'cycle arg',
                     r = 'clear line',
-                    d = 'del word →'-- bash only
+                    d = 'del word →',-- bash only
+                    tab = 'history complete'--bash only
                 }
             },
             {
@@ -38,6 +39,7 @@ local myhotkeys = {
                     d = 'eof/del',
                     e = 'end of line',
                     f = 'forward char',
+                    g = 'abort line',
                     h = 'backspace',
                     k = 'clear to end',
                     l = 'clear screen',
@@ -49,6 +51,9 @@ local myhotkeys = {
                     w = 'del word ←',
                     y = 'paste deleted',--bash only
                     -- ion only? x = 'undo',
+                    ['x>*'] = 'expand glob',
+                    ['x>r'] = 'reread initrc',
+                    ['x>u'] = 'undo',
                     z = 'pause',
                     left = 'word ←',--bash only
                     right = 'word →'--bash only
