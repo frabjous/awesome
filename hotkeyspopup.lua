@@ -22,11 +22,13 @@ local myhotkeys = {
                     -- ion only ['a>h'] = 'history',
                     -- ion only ['a>s'] = 'set',
                     b = 'back word',
+                    c = 'fzf cd',
+                    d = 'del word →',-- bash only
                     f = 'forward word',
+                    r = 'clear line',
+                    u = 'insert unicode',
                     bsp = 'del word ←',
                     ['.'] = 'cycle arg',
-                    r = 'clear line',
-                    d = 'del word →',-- bash only
                     tab = 'history complete'--bash only
                 }
             },
@@ -47,6 +49,7 @@ local myhotkeys = {
                     p = 'prev cmd',
                     r = 'search history ↑',
                     s = 'search history ↓',
+                    t = 'fzf insert filenames',
                     u = 'clear to start',
                     w = 'del word ←',
                     y = 'paste deleted',--bash only
