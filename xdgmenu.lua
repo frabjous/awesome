@@ -37,9 +37,12 @@
      {"Avahi VNC Server Browser", "/usr/bin/bvnc", "/usr/share/icons/gnome/16x16/devices/network-wired.png" },
      {"Brave", "brave ", "/usr/share/icons/hicolor/16x16/apps/brave-desktop.png" },
      {"Chromium", "/usr/bin/chromium ", "/usr/share/icons/hicolor/16x16/apps/chromium.png" },
+     {"Eolie", "eolie ", "/usr/share/icons/hicolor/16x16/apps/org.gnome.Eolie.png" },
      {"Falkon", "falkon ", "/usr/share/icons/hicolor/16x16/apps/falkon.png" },
      {"Firefox", "/usr/lib/firefox/firefox ", "/usr/share/icons/hicolor/16x16/apps/firefox.png" },
      {"Luakit", "luakit ", "/usr/share/pixmaps/luakit.png" },
+     {"Min", "min ", "/usr/share/icons/hicolor/256x256/apps/min.png" },
+     {"Web", "epiphany "},
      {"qutebrowser", "qutebrowser --untrusted-args ", "/usr/share/icons/hicolor/16x16/apps/qutebrowser.png" },
  }
 
@@ -72,6 +75,7 @@
 
  local menue6f43c40ab1c07cd29e4e83e4ef6bf85 = {
      {"CMake", "cmake-gui ", "/usr/share/icons/hicolor/32x32/apps/CMakeSetup.png" },
+     {"Electron 16", "electron16 ", "/usr/share/pixmaps/electron16.png" },
      {"Qt Assistant", "assistant", "/usr/share/icons/hicolor/32x32/apps/assistant.png" },
      {"Qt Designer", "designer ", "/usr/share/icons/hicolor/128x128/apps/QtProject-designer.png" },
      {"Qt Linguist", "linguist ", "/usr/share/icons/hicolor/16x16/apps/linguist.png" },
