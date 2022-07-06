@@ -227,9 +227,10 @@ _M.mpdtogglemenu = awful.menu({ items = {
     { "browse music", "wezterm start --class music_browse -- " ..
         "musicbrowse.sh" },
     { "media player page", RC.vars.browser ..
-        " --target window -C " .. os.getenv("HOME") ..
-        "/misc/dotfiles/qutebrowser/config-noui.py --basedir " ..
-        os.getenv("HOME") .. "/.cache/altqute " ..
+        " --app=" ..
+        --" --target window -C " .. os.getenv("HOME") ..
+        --"/misc/dotfiles/qutebrowser/config-noui.py --basedir " ..
+        --os.getenv("HOME") .. "/.cache/altqute " ..
         --" --new-window --profile " ..
         -- os.getenv("HOME") .. "/.mozilla/firefox/hiddenui " ..
         "http://localhost:7306/" }
@@ -538,9 +539,10 @@ musicbrowsew:buttons(gears.table.join(
     awful.button({}, 3, nil, function() -- right click for browser
         awful.spawn(
             RC.vars.browser ..
-                ' --target window -C ' .. os.getenv("HOME") ..
-                '/misc/dotfiles/qutebrowser/config-noui.py ' ..
-                '--basedir ' .. os.getenv("HOME") .. '/.cache/altqute ' ..
+                ' -app=' ..
+                --' --target window -C ' .. os.getenv("HOME") ..
+                --'/misc/dotfiles/qutebrowser/config-noui.py ' ..
+                --'--basedir ' .. os.getenv("HOME") .. '/.cache/altqute ' ..
                 --' --new-window --profile ' ..
                 --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'http://localhost:7306/'

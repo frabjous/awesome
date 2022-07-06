@@ -13,13 +13,16 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
     )
 
     if ((host == username .. "-home") or
+        (host == username .. "-gentoo") or
         (host == username .. "-work")) then
         -- start outlook
         awful.spawn.once(
-            RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
-            .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-            os.getenv("HOME") .. '/.cache/altqute ' ..
-            '-s window.title_format "{perc}{current_title}—starter" ' ..
+            RC.vars.browser ..
+            ' --app=' ..
+            --' --target window -C ' .. os.getenv("HOME")
+            --.. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+            --os.getenv("HOME") .. '/.cache/altqute ' ..
+            --'-s window.title_format "{perc}{current_title}—starter" ' ..
             --RC.vars.browser .. ' --new-window ' ..
             --'--profile ' .. os.getenv("HOME") ..
             --'/.mozilla/firefox/hiddenui ' ..
@@ -33,10 +36,12 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             single_shot = true,
             callback = function()
                 awful.spawn.once(
-                    RC.vars.browser .. ' --target window -C ' .. os.getenv("HOME")
-                    .. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                    os.getenv("HOME") .. '/.cache/altqute ' ..
-                    '-s window.title_format "{perc}{current_title}—starter" ' ..
+                    RC.vars.browser ..
+                    '--app=' ..
+                    --' --target window -C ' .. os.getenv("HOME")
+                    --.. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                    --os.getenv("HOME") .. '/.cache/altqute ' ..
+                    --'-s window.title_format "{perc}{current_title}—starter" ' ..
                     --RC.vars.browser .. ' --new-window --profile ' ..
                     --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                         'https://youtube.com'

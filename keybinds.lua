@@ -125,20 +125,21 @@ globalkeys = gears.table.join(
     ),
     -- super c to launch browser with default profile
     awful.key({ RC.vars.modkey }, "c", function ()
-            awful.spawn(RC.vars.browser ..
-            ' --target window'
+            awful.spawn(RC.vars.browser
+            -- .. ' --target window'
             --' --new-window --profile ' .. os.getenv("HOME") ..
             --'/.mozilla/firefox/default'
             )
         end,
         { description = "browser", group = "Super" }
     ),
-    -- control super o to open Outlook firefox window with hidden UI
+    -- control super o to open Outlook webapp
     awful.key({ RC.vars.modkey, "Control" }, "o", function()
             awful.spawn(RC.vars.browser ..
-                ' --target window -C ' .. os.getenv("HOME") ..
-                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                os.getenv("HOME") .. '/.cache/altqute ' ..
+                ' --app=' ..
+                --' --target window -C ' .. os.getenv("HOME") ..
+                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                --os.getenv("HOME") .. '/.cache/altqute ' ..
                 --RC.vars.browser ..
                 --' --new-window --profile ' ..
                 --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
@@ -147,12 +148,13 @@ globalkeys = gears.table.join(
         end,
         { description = "outlook", group = "Ctrl-Super" }
     ),
-    -- control super y to open Outlook firefox window with hidden UI
+    -- control super y to open youtube webapp
     awful.key({ RC.vars.modkey, "Control" }, "y", function()
-            awful.spawn(RC.vars.browser .. 
-                ' --target window -C ' .. os.getenv("HOME") ..
-                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                os.getenv("HOME") .. '/.cache/altqute ' ..
+            awful.spawn(RC.vars.browser ..
+                ' --app=' ..
+                --' --target window -C ' .. os.getenv("HOME") ..
+                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                --os.getenv("HOME") .. '/.cache/altqute ' ..
                 --' --new-window --profile ' ..
                 --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui' .. 
                 'https://youtube.com'
@@ -160,12 +162,13 @@ globalkeys = gears.table.join(
         end,
         { description = "youtube", group = "Ctrl-Super" }
     ),
-    -- control super z to open Zoom firefox window with hidden UI
+    -- control super z to open Zoom as a webapp
     awful.key({ RC.vars.modkey, "Control" }, "z", function()
             awful.spawn(RC.vars.browser ..
-                ' --target window -C ' .. os.getenv("HOME") ..
-                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                os.getenv("HOME") .. '/.cache/altqute ' ..            
+                ' --app=' ..
+                --' --target window -C ' .. os.getenv("HOME") ..
+                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                --os.getenv("HOME") .. '/.cache/altqute ' ..            
                 --' --new-window --profile ' ..
                 --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'https://umass-amherst.zoom.com'
@@ -173,12 +176,13 @@ globalkeys = gears.table.join(
         end,
         { description = "zoom", group = "Ctrl-Super" }
     ),
-    -- control super m to open media server window with hidden UI
+    -- control super m to open media server window
     awful.key({ RC.vars.modkey, "Control" }, "m", function()
             awful.spawn(RC.vars.browser ..
-                ' --target window -C ' .. os.getenv("HOME") ..
-                '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                os.getenv("HOME") .. '/.cache/altqute ' ..
+                ' --app=' ..
+                --' --target window -C ' .. os.getenv("HOME") ..
+                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
+                --os.getenv("HOME") .. '/.cache/altqute ' ..
                 --' --new-window --profile ' ..
                 --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'http://localhost:7306/'
@@ -186,7 +190,7 @@ globalkeys = gears.table.join(
         end,
         { description = "media server", group = "Ctrl-Super" }
     ),
-    -- super alt c to open Chromium
+    -- super alt c to open alternative browser
     awful.key({ RC.vars.modkey, RC.vars.altkey }, "c", function()
             awful.spawn('firefox')
         end,
@@ -211,7 +215,7 @@ globalkeys = gears.table.join(
         end,
         { description = "clipboard menu", group = "Super" }
     ),
-    -- super o for clipboard menu
+    -- super o for file opener menu
     awful.key({ RC.vars.modkey }, "o", function()
             awful.spawn('sh -c \'o.sh "$(zenity --title="Choose a ' ..
             'file to open" --file-selection)"\'')

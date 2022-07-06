@@ -26,7 +26,7 @@ getNetName() {
 }
 
 getIp() {
-   /usr/sbin/ip addr show $interface | grep 'inet ' | sed 's/.*inet //' | sed 's:/.*::'
+   ip addr show $interface | grep 'inet ' | sed 's/.*inet //' | sed 's:/.*::'
 }
 
 globe=''

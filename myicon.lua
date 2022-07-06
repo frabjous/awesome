@@ -2,7 +2,8 @@
 -- determine Awesome Nerd Font Icon to use by Window name and class
 function myicon(name, class)
     if ((name:match('YouTube — Mozilla Firefox')) or
-        (name:match('YouTube.*qutebrowser')) or
+        (name:match('YouTube.*qutebrowser$')) or
+        (name:match('YouTube.*Brave$')) or
         (name:match('YouTube$')) or
         (name:match('YouTube.*starter$')) or
         (name:match('Picture-in-Picture'))) then
@@ -11,13 +12,15 @@ function myicon(name, class)
     if ((name:match('Outlook — Mozilla Firefox')) or
         (name:match('Outlook$')) or
         (name:match('Outlook.*starter$')) or
+        (name:match('Outlook.*Brave$')) or
         (name:match('Outlook.*qutebrowser'))) then
         return ''
     end
     if ((name:match('Zoom Video Conferencing')) or
         (name:match('Personal Meeting Room')) or
         (name:match('Zoom$')) or
-        (name:match('Zoom.*qutebrowser')) or
+        (name:match('Zoom.*qutebrowser$')) or
+        (name:match('Zoom.*Brave$')) or
         (name:match('Zoom — Mozilla Firefox'))) then
         return ''
     end
@@ -25,11 +28,14 @@ function myicon(name, class)
         (name:match('Pi Media — Mozilla Firefox')) or
         (name:match('Pi Media$')) or
         (name:match('Local Media$')) or
+        (name:match('Pi Media.*Brave$')) or
+        (name:match('Local Media.*Brave$')) or
         (name:match('Pi Media.*qutebrowser')) or
         (name:match('Local Media.*qutebrowser'))) then
         return ''
     end
     if ((name:match('^Reddit.*Firefox$')) or
+        (name:match('^Reddit.*Brave$')) or
         (name:match('^Reddit.*qutebrowser$'))) then
         return '樓' -- cf 
     end
@@ -54,6 +60,9 @@ function myicon(name, class)
     end
     if (name:match('Chromium$')) then
         return ''
+    end
+    if (name:match('Brave$')) then
+        return ''
     end
     if ((class:match('^sioyek$')) or (class:match('^[Zz]athura$')) or
         (class:match('^llpp$')) or (class:match('^okular$')) or
