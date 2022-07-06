@@ -85,7 +85,7 @@ tasklist_buttons = gears.table.join(
 local mpd = lain.widget.mpd({
     timeout = 5,
     music_dir = os.getenv("HOME") .. "/music",
-    follow_tag = true,
+    followtag = true,
     settings = function()
         local icon=""
         if (mpd_now.state == "play") then
