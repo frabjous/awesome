@@ -58,11 +58,11 @@ _M.mymainmenu = awful.menu({
             awful.spawn.with_shell("sleep 0.1 && clipmenu")
             end, icon_loc .. "actions/editpaste.svg"
         },
-        { "suspend", "sudo systemctl suspend",
+        { "suspend", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && loginctl suspend || systemctl suspend'",
             icon_loc .. "panel/night-light-symbolic.svg" },
-        { "reboot", "sudo reboot",
+        { "reboot", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && openrc-shutdown --reboot now || reboot'",
             icon_loc .. "actions/vm-restart.svg" },
-        { "shutdown", "sudo poweroff",
+        { "shutdown", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && openrc-shutdown --poweroff now || poweroff'",
             icon_loc .. "actions/system-shutdown-symbolic.svg" }
     },
     theme = {
