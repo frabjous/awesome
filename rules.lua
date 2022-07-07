@@ -55,8 +55,8 @@ awful.rules.rules = {
         },
         role = {
             "AlarmWindow",
-            "ConfigManager",
-            "pop-up",
+            "ConfigManager"--,
+            --"pop-up", -- was being applied to brave webapps!
         }
     }, properties = { floating = true } },
     -- make YouTube PiP sticky: on all tags
