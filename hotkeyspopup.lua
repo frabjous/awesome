@@ -156,7 +156,7 @@ local myhotkeys = {
             {
                 modifiers     = {},
                 keys = {
-                    ['backspace'] = 'back',
+                    bksp          = 'back',
                     ['F5']        = 'refresh',
                     ['F6']        = 'address bar',
                     ['F11']       = 'full screen',
