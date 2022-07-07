@@ -459,8 +459,9 @@ end)
 
 
 local updatestatus, updstatustimer = awful.widget.watch(
-    os.getenv("HOME") .. '/bin/update-status.php awesome',
-    15,
+    os.getenv("HOME") .. '/bin/kronstatus.sh',
+    --os.getenv("HOME") .. '/bin/update-status.php awesome',
+    30,
     function(widget, stdout, stderr, exitreason, exitcode)
         if (exitcode == 0) then
             -- strip off newline added somehow
@@ -504,13 +505,19 @@ updatestatus:buttons(gears.table.join(
     updatestatus:buttons(),
     awful.button({}, 1, nil, function()
         awful.spawn(RC.vars.terminal .. ' start --class info_term '
-        .. '-- updstatusdelay.sh')
+        --.. '-- updstatusdelay.sh'
+        .. '-- kronjob.sh statushold'
+        )
     end)
 ))
 -- update on mouse enter
 updatestatus:connect_signal("mouse::enter", function()
     updstatustimer:emit_signal("timeout")
 end)
+
+_M.updateupdateicon = function()
+    updstatustimer:emit_signal("timeout")
+end
 
 -- MUSIC BROWSE launcher
 
