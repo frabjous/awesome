@@ -1,7 +1,8 @@
 naughty.config.defaults.margin=beautiful.notification_margin
 
 naughty.mynotify = function(msg, pos)
-    pos = pos or 'bottom_middle'
+    --pos = pos or 'bottom_middle'
+    pos = pos or 'top_right'
     naughty.notify({
         --color = beautiful.accent,
         font = 'Oswald 30',
