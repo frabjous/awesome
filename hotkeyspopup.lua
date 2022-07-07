@@ -64,6 +64,88 @@ local myhotkeys = {
             }
         }
     },
+    brave = {
+        abbrev = 'br',
+        rules = {
+            class = { 'brave-browser', 'Brave-browser' }
+        },
+        modsets = {
+            {
+                modifiers = { alt },
+                keys = {
+                    d      = 'address bar',
+                    e      = 'main menu',
+                    home   = 'home page',
+                    ['f4'] = 'close',
+                    ['f6'] = 'focus dialog',
+                    left   = 'back',
+                    right  = 'forward'
+                }
+            },
+            {
+                modifiers = { ctrl },
+                keys = {
+                    ['0']    = 'reset zoom',
+                    ['1..9'] = 'tab #',
+                    d        = 'add bmark',
+                    e        = 'search bar',
+                    f        = 'find',
+                    g        = 'find next',
+                    h        = 'history',
+                    j        = 'downloads',
+                    k        = 'search bar',
+                    l        = 'address bar',
+                    n        = 'new window',
+                    o        = 'open file',
+                    p        = 'print',
+                    r        = 'reload',
+                    s        = 'save as',
+                    t        = 'new tab',
+                    u        = 'view source',
+                    w        = 'close tab',
+                    enter    = 'wrap www..com',
+                    tab      = 'next tab',
+                    esc      = 'task manager',
+                    ['+']    = 'zoom in',
+                    ['-']    = 'zoom out',
+                    left     = 'prev word',
+                    right    = 'next word',
+                    bksp     = 'del word'
+                }
+            },
+            {
+                modifiers = { shift },
+                keys = {
+                    ['f5']   = 'hard reload',
+                    scroll   = 'hor scroll'
+                }
+            },
+            {
+                modifiers = { alt, shift },
+                keys = {
+                    t = 'toolbar'
+                }
+            },
+            {
+                modifiers = { ctrl, shift },
+                keys = {
+                    b   = 'bmark window',
+                    d   = 'bmark all',
+                    g   = 'find prev',
+                    i   = 'dev tools',
+                    j   = 'dev console',
+                    m   = 'profiles',
+                    n   = 'private window',
+                    o   = 'bmark manager',
+                    r   = 'hard reload',
+                    t   = 'reopen',
+                    tab = 'prev tab',
+                    w   = 'close win',
+                    del = 'clear data'
+                }
+            }
+        }
+    },
     firefox = {
         abbrev = 'ff',
         rules  = {
