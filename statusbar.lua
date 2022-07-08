@@ -653,7 +653,7 @@ local quitmenu = awful.menu({
             icon_loc .. "panel/night-light-symbolic.svg"  },
         { "poweroff", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && openrc-shutdown --poweroff now ||  poweroff'",
             icon_loc .. "actions/system-shutdown-symbolic.svg" },
-        { "reboot", "sudo sd -c '[[ $(uname -r) =~ gentroo ]] && openrc-shutdown --reboot now || reboot'",
+        { "reboot", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && openrc-shutdown --reboot now || reboot'",
             icon_loc .. "actions/vm-restart.svg" },
         { "quit awesome",
             function() awesome.quit() end, icon_loc .. "actions/exit.svg" },
