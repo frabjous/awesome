@@ -29,15 +29,15 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             'https://outlook.office365.com/mail/inbox/'
         )
 
-        -- start youtube after 55 seconds
+        -- start youtube after 15 seconds
         gears.timer({
-            timeout = 55,
+            timeout = 15,
             autostart = true,
             single_shot = true,
             callback = function()
                 awful.spawn.once(
                     RC.vars.browser ..
-                    '--app=' ..
+                    ' --app=' ..
                     --' --target window -C ' .. os.getenv("HOME")
                     --.. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
                     --os.getenv("HOME") .. '/.cache/altqute ' ..
