@@ -56,7 +56,8 @@ _M.make_only_on_screen = function(c, s)
     for _,t in pairs(s.selected_tags) do
         for _,o in pairs(t:clients()) do
             -- skip the client in question
-            if (o ~= c) and not (o.sticky) and not (o.ontop) then
+            if (o ~= c) and not (o.sticky) and not (o.ontop) and
+                not (o.skip_taskbar) then
                 -- check if showing
                 if (_M.is_showing_on_screen(o, s)) then
                     o.minimized = true
