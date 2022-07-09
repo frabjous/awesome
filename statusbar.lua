@@ -470,16 +470,26 @@ local updatestatus, updstatustimer = awful.widget.watch(
             if (stdout == '') then
                 nscolor = beautiful.fg_alert
                 if (widget.tooltip) then
-                    widget.tooltip.text = 'update error!'
+                    widget.tooltip.text = 'kron error!'
                 end
             elseif (stdout == '') then
                 nscolor = beautiful.info_color
                 if (widget.tooltip) then
-                    widget.tooltip.text = 'update postponed'
+                    widget.tooltip.text = 'kron postponed'
+                end
+            elseif (stdout == 'ﲊ') then
+                nscolor = beautiful.info_color
+                if (widget.tooltip) then
+                    widget.tooltip.text = 'kronjob taking too long'
+                end
+            elseif (stdout == '') then
+                nscolor = beautiful.accent
+                if (widget.tooltip) then
+                    widget.tooltip.text = 'kronjob underway'
                 end
             else
                 if (widget.tooltip) then
-                    widget.tooltip.text = 'update status ok'
+                    widget.tooltip.text = 'kron status ok'
                 end
             end
             widget:set_markup_silently(
