@@ -83,6 +83,7 @@ local function listen_to_signals()
     local sender = "org.freedesktop.login1"
     local interface = "org.freedesktop.login1.Manager"
     local object = "/org/freedesktop/login1"
+    -- "PrepareForSleep" supposedly sent both before and after suspend
     local member = "PrepareForSleep"
     bus:signal_subscribe(sender, interface, member, object, nil, Gio.DBusSignalFlags.NONE,
     function(bus, sender, object, interface, signal, params)
@@ -90,7 +91,8 @@ local function listen_to_signals()
         -- after (with the argument False) the system goes down for
         -- reboot/poweroff, resp. suspend/hibernate."
         if not params[1] then
-            -- This code is run before suspend. You can replace the following with something else.
+            -- This code is run before suspend. You can replace the 
+            -- following with something else.
             require("gears.timer").start_new(2, function()
                 for s in screen do
                     s.mytextclock:force_update()
