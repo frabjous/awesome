@@ -6,6 +6,14 @@
 local host = awesome.hostname
 local username = os.getenv("USER")
 
+-- store dbus address
+local dbusaddr = os.getenv("DBUS_SESSION_BUS_ADDRESS")
+local runtimedir = os.getenv("XDG_RUNTIME_DIR")
+local f = io.open(runtimedir .. '/awesome-dbus-addr', 'w')
+f:write(dbusaddr)
+f:close()
+
+-- start browsers
 if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 
     awful.spawn.once(
