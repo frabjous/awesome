@@ -73,3 +73,31 @@ client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
 
+-- update clocks when awakening from sleep?
+-- see https://stackoverflow.com/questions/68494433/running-awesome-client-from-a-script-executing-as-root
+local lgi = require("lgi")
+local Gio = lgi.require("Gio")
+
+local function listen_to_signals()
+    local bus = lgi.Gio.bus_get_sync(Gio.BusType.SYSTEM)
+    local sender = "org.freedesktop.login1"
+    local interface = "org.freedesktop.login1.Manager"
+    local object = "/org/freedesktop/login1"
+    local member = "PrepareForSleep"
+    bus:signal_subscribe(sender, interface, member, object, nil, Gio.DBusSignalFlags.NONE,
+    function(bus, sender, object, interface, signal, params)
+        -- "signals are sent right before (with the argument True) and
+        -- after (with the argument False) the system goes down for
+        -- reboot/poweroff, resp. suspend/hibernate."
+        if not params[1] then
+            -- This code is run before suspend. You can replace the following with something else.
+            require("gears.timer").start_new(2, function()
+                for s in screen do
+                    s.mytextclock:force_update()
+                end
+            end)
+        end
+    end)
+end
+
+listen_to_signals()
