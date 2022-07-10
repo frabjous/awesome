@@ -25,6 +25,10 @@ getNetName() {
    iwctl station $interface show | grep "Connected network" | sed 's/.*work\s*//' | sed 's/\s*$//g'
 }
 
+getNetNameWPA() {
+    wpa_cli list_networks | grep CURRENT | sed -e 's/^[0-9]*\s*//' -e 's/\t.*//'
+}
+
 getIp() {
    ip addr show $interface | grep 'inet ' | sed 's/.*inet //' | sed 's:/.*::'
 }
@@ -43,6 +47,9 @@ fi
 if [[ "$firsttwo" == "wl" ]] || [[ "$firsttwo" == "ww" ]] ; then
     # part 1 for wifi
     nn="$(getNetName)"
+    if [[ -z "$nn" ]] ; then
+        nn="$(getNetNameWPA)"
+    fi
     if [[ "$nn" == "castleponies2" ]] ; then
         nn="wifi"
     fi

@@ -1,4 +1,15 @@
 
+local distroicon=''
+if (awesome.hostname == 'kck-gentoo') then
+    distroicon = ''
+elseif (awesome.hostname == 'kck-laptop') then
+    distroicon = ''
+elseif ((awesome.hostname == 'kck-work')
+    or (awesome.hostname == 'kck-home')) then
+    distroicon = ''
+end
+
+
 -- determine Awesome Nerd Font Icon to use by Window name and class
 function myicon(name, class)
     if ((name:match('YouTube — Mozilla Firefox')) or
@@ -111,7 +122,7 @@ function myicon(name, class)
     if (name:match('LibreOffice Writer')) then
         return ''
     end
-    return ''
+    return distroicon
 end
 
 return myicon
