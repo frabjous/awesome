@@ -659,11 +659,11 @@ scratchw:buttons(gears.table.join(
 local icon_loc = "/usr/share/icons/" .. beautiful.icon_theme .. "/24x24/"
 local quitmenu = awful.menu({
     items = {
-        { "suspend", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && loginctl suspend || systemctl suspend'",
+        { "suspend", "kexit.sh suspend",
             icon_loc .. "panel/night-light-symbolic.svg"  },
-        { "poweroff", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && openrc-shutdown --poweroff now ||  poweroff'",
+        { "poweroff", "kexit.sh poweroff",
             icon_loc .. "actions/system-shutdown-symbolic.svg" },
-        { "reboot", "sudo sh -c '[[ $(uname -r) =~ gentoo ]] && openrc-shutdown --reboot now || reboot'",
+        { "reboot", "kexit.sh reboot",
             icon_loc .. "actions/vm-restart.svg" },
         { "quit awesome",
             function() awesome.quit() end, icon_loc .. "actions/exit.svg" },

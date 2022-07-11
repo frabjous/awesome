@@ -274,14 +274,14 @@ globalkeys = gears.table.join(
         "q", awesome.quit,
         { description = "quit awesome", group = "Alt-Ctrl-Shift-Super" }
     ),
-    -- super shift e, or super-escape for shutdown menu
+    -- super shift e, or super-escape for fshutdown menu
     awful.key({ RC.vars.modkey, "Shift" }, "e", function()
-            awful.spawn("asktoshutdown.sh")
+            awful.spawn("kexit.sh ask")
         end,
         { description = "power menu", group = "Shift-Super" }
         ),
     awful.key({ RC.vars.modkey }, "Escape", function()
-            awful.spawn("asktoshutdown.sh")
+            awful.spawn("kexit.sh ask")
         end,
         { description = "power menu", group = "Super" }
     ),
