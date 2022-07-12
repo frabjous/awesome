@@ -6,3 +6,6 @@ if [ -x /opt/xdg-menu/usr/bin/xdg_menu ] ; then
 else
     xdg_menu --format awesome > $HOME/.config/awesome/xdgmenu.lua
 fi
+if [[ "$HOSTNAME" == "kck-work" ]] || [[ "$HOSTNAME" == "kck-home" ]] ; then
+    sed -i 's|/usr/lib/firefox/firefox|/usr/lib/firefox/firefox -P default|g' $HOME/.config/awesome/xdgmenu.lua
+fi
