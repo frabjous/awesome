@@ -62,7 +62,7 @@ _M.mymainmenu = awful.menu({
             icon_loc .. "panel/night-light-symbolic.svg" },
         { "reboot", "kexit.sh reboot",
             icon_loc .. "actions/vm-restart.svg" },
-        { "shutdown", "kexit.sh poweroff'",
+        { "shutdown", "kexit.sh poweroff",
             icon_loc .. "actions/system-shutdown-symbolic.svg" }
     },
     theme = {
