@@ -13,20 +13,12 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
         'wezterm start --class info_term -- send-ip.sh', {}
     )
 
-    if ((host == username .. "-home") or
-        (host == username .. "-gentoo") or
-        (host == username .. "-work")) then
+    if (os.gentenv("KCK_START_WEBAPPS") == "yes") then
+
         -- start outlook
         awful.spawn.once(
             RC.vars.browser ..
             ' --app=' ..
-            --' --target window -C ' .. os.getenv("HOME")
-            --.. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-            --os.getenv("HOME") .. '/.cache/altqute ' ..
-            --'-s window.title_format "{perc}{current_title}—starter" ' ..
-            --RC.vars.browser .. ' --new-window ' ..
-            --'--profile ' .. os.getenv("HOME") ..
-            --'/.mozilla/firefox/hiddenui ' ..
             'https://outlook.office365.com/mail/inbox/'
         )
 
@@ -39,22 +31,18 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
                 awful.spawn.once(
                     RC.vars.browser ..
                     ' --app=' ..
-                    --' --target window -C ' .. os.getenv("HOME")
-                    --.. '/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                    --os.getenv("HOME") .. '/.cache/altqute ' ..
-                    --'-s window.title_format "{perc}{current_title}—starter" ' ..
-                    --RC.vars.browser .. ' --new-window --profile ' ..
-                    --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                         'https://youtube.com'
                 )
             end
         })
     end
-    if (host == username .. "-laptop") then
+
+    if (os.getenv("KCK_START_LECTURE") == "yes") then
         awful.spawn.once (
             RC.vars.browser .. ' "https://logic.umasscreate.net"', {}
         )
     end
+
     -- create a folder in /tmp to mark run since boot
     gears.filesystem.make_directories("/tmp/awesome.started")
 end

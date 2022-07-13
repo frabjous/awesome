@@ -123,13 +123,9 @@ globalkeys = gears.table.join(
         end,
         { description = "ssh work", group = "Super" }
     ),
-    -- super c to launch browser with default profile
+    -- super c to launch default browser
     awful.key({ RC.vars.modkey }, "c", function ()
-            awful.spawn(RC.vars.browser
-            -- .. ' --target window'
-            --' --new-window --profile ' .. os.getenv("HOME") ..
-            --'/.mozilla/firefox/default'
-            )
+            awful.spawn(RC.vars.browser)
         end,
         { description = "browser", group = "Super" }
     ),
@@ -137,12 +133,6 @@ globalkeys = gears.table.join(
     awful.key({ RC.vars.modkey, "Control" }, "o", function()
             awful.spawn(RC.vars.browser ..
                 ' --app=' ..
-                --' --target window -C ' .. os.getenv("HOME") ..
-                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                --os.getenv("HOME") .. '/.cache/altqute ' ..
-                --RC.vars.browser ..
-                --' --new-window --profile ' ..
-                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'https://outlook.office365.com/mail/inbox/'
             )
         end,
@@ -152,11 +142,6 @@ globalkeys = gears.table.join(
     awful.key({ RC.vars.modkey, "Control" }, "y", function()
             awful.spawn(RC.vars.browser ..
                 ' --app=' ..
-                --' --target window -C ' .. os.getenv("HOME") ..
-                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                --os.getenv("HOME") .. '/.cache/altqute ' ..
-                --' --new-window --profile ' ..
-                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui' .. 
                 'https://youtube.com'
             )
         end,
@@ -166,11 +151,6 @@ globalkeys = gears.table.join(
     awful.key({ RC.vars.modkey, "Control" }, "z", function()
             awful.spawn(RC.vars.browser ..
                 ' --app=' ..
-                --' --target window -C ' .. os.getenv("HOME") ..
-                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                --os.getenv("HOME") .. '/.cache/altqute ' ..            
-                --' --new-window --profile ' ..
-                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'https://umass-amherst.zoom.com'
             )
         end,
@@ -180,11 +160,6 @@ globalkeys = gears.table.join(
     awful.key({ RC.vars.modkey, "Control" }, "m", function()
             awful.spawn(RC.vars.browser ..
                 ' --app=' ..
-                --' --target window -C ' .. os.getenv("HOME") ..
-                --'/misc/dotfiles/qutebrowser/config-noui.py --basedir ' ..
-                --os.getenv("HOME") .. '/.cache/altqute ' ..
-                --' --new-window --profile ' ..
-                --os.getenv("HOME") .. '/.mozilla/firefox/hiddenui ' ..
                 'http://localhost:7306/'
             )
         end,
@@ -192,17 +167,10 @@ globalkeys = gears.table.join(
     ),
     -- super alt c to open alternative browser
     awful.key({ RC.vars.modkey, RC.vars.altkey }, "c", function()
-            awful.spawn('firefox')
+            awful.spawn('firefox -P default')
         end,
         { description = "firefox", group = "Alt-Super" }
     ),
-    -- super shift alt c to open Chromium
-    awful.key({ RC.vars.modkey, RC.vars.altkey, "Shift" }, "c", function()
-            awful.spawn('chromium')
-        end,
-        { description = "chromium", group = "Alt-Shift-Super" }
-    ),
-
     -- super e for editor
     awful.key({ RC.vars.modkey }, "e", function()
             awful.spawn(RC.vars.editor_cmd)
