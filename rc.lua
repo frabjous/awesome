@@ -80,3 +80,6 @@ require("signals")
 
 -- programs to start on launch
 RC.dropdowns = require("autostart")
+
+-- record dbus address for root to find
+require("dbusrecord")
