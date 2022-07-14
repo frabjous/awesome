@@ -13,7 +13,7 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
         'wezterm start --class info_term -- send-ip.sh', {}
     )
 
-    if (os.gentenv("KCK_START_WEBAPPS") == "yes") then
+    if (os.getenv("KCK_START_WEBAPPS") == "yes") then
 
         -- start outlook
         awful.spawn.once(
