@@ -9,10 +9,6 @@ local username = os.getenv("USER")
 -- start browsers
 if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 
-    awful.spawn.once(
-        'wezterm start --class info_term -- send-ip.sh', {}
-    )
-
     if (os.getenv("KCK_START_WEBAPPS") == "yes") then
 
         -- start outlook
@@ -31,7 +27,7 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
                 awful.spawn.once(
                     RC.vars.browser ..
                     ' --app=' ..
-                        'https://youtube.com'
+                    'https://youtube.com'
                 )
             end
         })
