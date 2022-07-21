@@ -15,39 +15,23 @@ function myicon(name, class)
     if ((name:match('YouTube — Mozilla Firefox')) or
         (name:match('YouTube.*qutebrowser$')) or
         (name:match('YouTube.*Brave$')) or
+        (name:match('YouTube.*Weasel$')) or
         (name:match('YouTube$')) or
         (name:match('YouTube.*starter$')) or
         (name:match('Picture-in-Picture'))) then
         return ''
     end
-    if ((name:match('Outlook — Mozilla Firefox')) or
-        (name:match('Outlook$')) or
-        (name:match('Outlook.*starter$')) or
-        (name:match('Outlook.*Brave$')) or
-        (name:match('Outlook.*qutebrowser'))) then
+    if (name:match('^Outlook')) then
         return ''
     end
-    if ((name:match('Zoom Video Conferencing')) or
-        (name:match('Personal Meeting Room')) or
-        (name:match('Zoom$')) or
-        (name:match('Zoom.*qutebrowser$')) or
-        (name:match('Zoom.*Brave$')) or
-        (name:match('Zoom — Mozilla Firefox'))) then
+    if (name:match('^Zoom')) then
         return ''
     end
-    if ((name:match('Local Media — Mozilla Firefox')) or
-        (name:match('Pi Media — Mozilla Firefox')) or
-        (name:match('Pi Media$')) or
-        (name:match('Local Media$')) or
-        (name:match('Pi Media.*Brave$')) or
-        (name:match('Local Media.*Brave$')) or
-        (name:match('Pi Media.*qutebrowser')) or
-        (name:match('Local Media.*qutebrowser'))) then
+    if ((name:match('^Local Media')) or
+        (name:match('^Pi Media'))) then
         return ''
     end
-    if ((name:match('^Reddit.*Firefox$')) or
-        (name:match('^Reddit.*Brave$')) or
-        (name:match('^Reddit.*qutebrowser$'))) then
+    if (name:match('^Reddit')) then
         return '樓' -- cf 
     end
     if ((name:match('Stack Exchange')) or
@@ -66,7 +50,8 @@ function myicon(name, class)
     if (name:match('qutebrowser$')) then
         return ''--
     end
-    if (name:match('Mozilla Firefox$')) then
+    if ((name:match('Mozilla Firefox$')) or
+        (name:match('Iceweasel'))) then
         return ''
     end
     if (name:match('Chromium$')) then
