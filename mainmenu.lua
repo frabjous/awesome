@@ -40,7 +40,7 @@ _M.myrunmenu = {
         icon_loc .. "actions/format-text-symbol.svg" },
     { "xournal", "xournalpp",
         icon_loc .. "actions/document-page-setup.svg" },
-    { "dolphin", "dolphin", icon_loc .. "places/folder-black-open.svg" }
+    { "thunar", "thunar", icon_loc .. "places/folder-black-open.svg" }
 }
 
 require("xdgmenu")
