@@ -12,16 +12,10 @@ end
 
 -- determine Awesome Nerd Font Icon to use by Window name and class
 function myicon(name, class)
-    if ((name:match('YouTube — Mozilla Firefox')) or
-        (name:match('YouTube.*qutebrowser$')) or
-        (name:match('YouTube.*Brave$')) or
-        (name:match('YouTube.*Weasel$')) or
-        (name:match('YouTube$')) or
-        (name:match('YouTube.*starter$')) or
-        (name:match('Picture-in-Picture'))) then
+    if (name:match('YouTube'))  then
         return ''
     end
-    if (name:match('^Outlook')) then
+    if (name:match('Mail.*Outlook')) then
         return ''
     end
     if (name:match('^Zoom')) then
