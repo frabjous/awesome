@@ -95,6 +95,7 @@ local function listen_to_signals()
             -- following with something else.
             require("gears.timer").start_new(2, function()
                 for s in screen do
+                    naughty.mynotify("updating")
                     s.mytextclock:force_update()
                 end
             end)
