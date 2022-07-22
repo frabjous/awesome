@@ -15,7 +15,8 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
         awful.spawn.once(
             RC.vars.browser ..
             ' --app=' ..
-            'https://outlook.office365.com/mail/inbox/'
+            'https://outlook.office365.com/mail/inbox/',
+            { screen = RC.startscreen }
         )
 
         -- start youtube after 15 seconds
@@ -27,7 +28,8 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
                 awful.spawn.once(
                     RC.vars.browser ..
                     ' --app=' ..
-                    'https://youtube.com'
+                    'https://youtube.com',
+                    { screen = RC.startscreen }
                 )
             end
         })
