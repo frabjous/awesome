@@ -8,7 +8,7 @@ local dpi          = xresources.apply_dpi
 local gfs          = require("gears.filesystem")
 local themes_path  = gfs.get_themes_dir()
 local iconpath     = os.getenv("HOME") .. "/.config/awesome/icons/"
-local theme = {}
+local theme        = require("currenttheme")
 
 theme.themecolors = {
   black   = "#131518",
@@ -29,10 +29,12 @@ theme.themecolors = {
   magenta = "#dfafdf"
 }
 
--- main settings
-theme.font          = "Oswald 10"
-theme.medfont       = "Oswald 11"
-theme.largerfont    = "Sans 12"
+-- some fonts
+theme.font = theme.fontfamily .. " 10"
+theme.medfont = theme.fontfamily .. " 11"
+theme.largerfont = theme.secondaryfontfamily .. " 12"
+
+-- main categories
 
 theme.bg_normal     = theme.themecolors.gray1
 theme.bg_focus      = theme.themecolors.black
@@ -48,7 +50,7 @@ theme.fg_minimize   = theme.themecolors.gray5
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(3)
 theme.border_normal = theme.themecolors.black
-theme.border_focus  = theme.themecolors.blue
+theme.border_focus  = theme.accent
 theme.border_marked = theme.themecolors.orange
 
 -- Generate Awesome icon:
@@ -62,19 +64,12 @@ theme.awesome_icon = os.getenv("HOME") ..
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 -- theme.icon_theme = nil
-theme.icon_theme = 'ePapirus'
+-- (I have this set in the imported theme …)
 
 -- set master width factor
 theme.master_width_factor = 0.6
 
-
--- my additions: main categories
-
--- main theme highlight
-theme.accent              = theme.themecolors.blue
-theme.secondary_highlight = theme.themecolors.green
-theme.icon_color          = theme.accent
-
+-- MY ADDITIONS
 -- update status
 theme.all_ok              = theme.themecolors.green
 
@@ -112,6 +107,7 @@ theme.taglist_bg_urgent   = theme.themecolors.red
 -- square to add to occupied tags (not used)
 theme.taglist_squares_sel   = iconpath .. "squarez.png"
 theme.taglist_squares_unsel = iconpath .. "squarefz.png"
+
 -- resize taglist squares
 theme.taglist_squares_resize = true
 
@@ -134,15 +130,16 @@ theme.tasklist_bg_focus                     = theme.themecolors.black
 theme.tasklist_fg_focus                     = theme.themecolors.white
 theme.tasklist_bg_urgent                    = theme.themecolors.red
 theme.tasklist_fg_urgent                    = theme.themecolors.black
-theme.tasklist_shape_border_color_focus     = theme.themecolors.blue
+theme.tasklist_shape_border_color_focus     = theme.accent
 theme.tasklist_shape_border_color_minimized = theme.themecolors.black
 theme.tasklist_shape_border_color_urgent    = theme.themecolors.yellow
 theme.tasklist_align                        = "center"
 
 -- background on hover
-theme.tasklist_bg_hover    = theme.themecolors.blue
+theme.tasklist_bg_hover    = theme.accent
 theme.tasklist_icon_hover  = theme.themecolors.white
 theme.tasklist_text_hover  = theme.themecolors.black
+
 -- color of small icons next to name for special windows
 theme.tasklist_extra_info  = theme.themecolors.gray3
 
@@ -156,15 +153,15 @@ theme.tasklist_shape_border = theme.themecolors.gray4
 -- switcher tasklist
 theme.switcher_border_color      = theme.themecolors.cyan
 theme.switcher_bg                = theme.themecolors.gray5
-theme.switcher_item_focus_border = theme.themecolors.green
-theme.switcher_font              = "Oswald 20"
-theme.switcher_fg_focus          = theme.themecolors.green
+theme.switcher_item_focus_border = theme.secondary_highlight
+theme.switcher_font              = theme.fontfamily .. " 20"
+theme.switcher_fg_focus          = theme.secondary_highlight
 
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
-theme.prompt_font = "Fira Code 12"
+theme.prompt_font = theme.monofontfamily .. " 12"
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|
 --     label_bg|label_fg|group_margin|font|description_font]
 
@@ -174,7 +171,7 @@ theme.prompt_font = "Fira Code 12"
 -- notification_[border_color|border_width|shape|opacity]
 
 theme.notification_bg           = theme.themecolors.black
-theme.notification_font         = "Oswald 16"
+theme.notification_font         = theme.fontfamily .. " 16"
 theme.notification_border_color = theme.notification_bg
 theme.notification_border_width = 0
 theme.notification_shape        = gears.shape.rounded_bar
