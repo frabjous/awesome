@@ -1,1 +1,1 @@
-../themes/myoriginal.lua
+/home/kck/misc/dotfiles/themes/myoriginal.lua
