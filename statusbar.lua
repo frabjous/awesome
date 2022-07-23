@@ -1077,7 +1077,7 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         spacing = 0,
         start_sunday = true,
-        font = beautiful.largerfont,
+        font = beautiful.uifont,
         margin = 2,
         style_weekday = {
             border_width = 0,

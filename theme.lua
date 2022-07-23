@@ -32,7 +32,7 @@ theme.themecolors = {
 -- some fonts
 theme.font = theme.fontfamily .. " 10"
 theme.medfont = theme.fontfamily .. " 11"
-theme.largerfont = theme.secondaryfontfamily .. " 12"
+theme.uifont = theme.uifontfamily .. " 12"
 
 -- main categories
 
