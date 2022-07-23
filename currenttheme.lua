@@ -1,1 +1,0 @@
-/home/kck/misc/dotfiles/themes/myoriginal.lua
