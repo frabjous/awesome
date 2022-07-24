@@ -104,10 +104,6 @@ theme.taglist_bg_focus    = theme.bg_normal
 theme.taglist_fg_urgent   = theme.themecolors.red
 theme.taglist_bg_urgent   = theme.themecolors.red
 
--- square to add to occupied tags (not used)
-theme.taglist_squares_sel   = iconpath .. "squarez.png"
-theme.taglist_squares_unsel = iconpath .. "squarefz.png"
-
 -- resize taglist squares
 theme.taglist_squares_resize = true
 
