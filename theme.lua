@@ -10,25 +10,6 @@ local themes_path  = gfs.get_themes_dir()
 local iconpath     = os.getenv("HOME") .. "/.config/awesome/icons/"
 local theme        = require("currenttheme")
 
-theme.themecolors = {
-  black   = "#131518",
-  gray1   = "#303236",
-  gray2   = "#4d5053",
-  gray3   = "#6a6d71",
-  gray4   = "#878b8f",
-  gray5   = "#a4a8ad",
-  gray6   = "#c1c6ca",
-  white   = "#dee3e8",
-  red     = "#df8787",
-  orange  = "#f5af71",
-  yellow  = "#ffffaf",
-  green   = "#afdf87",
-  cyan    = "#afdfdf",
-  blue    = "#87afdf",
-  purple  = "#8f5ac9",
-  magenta = "#dfafdf"
-}
-
 -- some fonts
 theme.font = theme.fontfamily .. " 10"
 theme.medfont = theme.fontfamily .. " 11"
