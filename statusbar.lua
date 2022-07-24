@@ -1184,7 +1184,17 @@ awful.screen.connect_for_each_screen(function(s)
             spacey,
             quakew,
             spacey,
-            quitlauncher
+            {
+                widget = wibox.container.margin,
+                left = 0,
+                right = 2,
+                top = 6,
+                bottom = 3,
+                {
+                    layout = wibox.layout.fixed.horizontal,
+                    quitlauncher
+                }
+            }
         }
     else
         -- widgets for secondary screen
@@ -1211,7 +1221,17 @@ awful.screen.connect_for_each_screen(function(s)
             spacey,
             quakew,
             spacey,
-            quitlauncher
+            {
+                widget = wibox.container.margin,
+                left = 0,
+                right = 0,
+                top = 6,
+                bottom = 3,
+                {
+                    layout = wibox.layout.fixed.horizontal,
+                    quitlauncher
+                }
+            }
         }
     end
 
