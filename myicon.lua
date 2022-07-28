@@ -48,7 +48,7 @@ function myicon(name, class)
         (name:match('Iceweasel'))) then
         return ''
     end
-    if (name:match('Chromium$')) then
+    if ((name:match('Chromium$')) or (name:match('[Ii]ridium$'))) then
         return ''
     end
     if (name:match('Brave$')) then
