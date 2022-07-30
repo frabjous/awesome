@@ -142,12 +142,6 @@ globalkeys = gears.table.join(
         end,
         { description = "youtube", group = "Ctrl-Super" }
     ),
-    -- control super z to open Zoom as a webapp
-    awful.key({ RC.vars.modkey, "Control" }, "z", function()
-            awful.spawn('zoomapp')
-        end,
-        { description = "zoom", group = "Ctrl-Super" }
-    ),
     -- control super m to open media server window
     awful.key({ RC.vars.modkey, "Control" }, "m", function()
             awful.spawn('pimediaapp')
