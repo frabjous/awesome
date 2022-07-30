@@ -13,9 +13,7 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 
         -- start outlook
         awful.spawn.once(
-            RC.vars.browser ..
-            ' --app=' ..
-            'https://outlook.office365.com/mail/inbox/',
+            'outlookapp',
             { screen = RC.startscreen }
         )
 
@@ -26,9 +24,7 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
             single_shot = true,
             callback = function()
                 awful.spawn.once(
-                    RC.vars.browser ..
-                    ' --app=' ..
-                    'https://youtube.com',
+                    'youtubeapp',
                     { screen = RC.startscreen }
                 )
             end
