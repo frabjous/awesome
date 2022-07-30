@@ -144,19 +144,13 @@ globalkeys = gears.table.join(
     ),
     -- control super z to open Zoom as a webapp
     awful.key({ RC.vars.modkey, "Control" }, "z", function()
-            awful.spawn(RC.vars.browser ..
-                ' --app=' ..
-                'https://umass-amherst.zoom.com'
-            )
+            awful.spawn('zoomapp')
         end,
         { description = "zoom", group = "Ctrl-Super" }
     ),
     -- control super m to open media server window
     awful.key({ RC.vars.modkey, "Control" }, "m", function()
-            awful.spawn(RC.vars.browser ..
-                ' --app=' ..
-                'http://localhost:7306/'
-            )
+            awful.spawn('pimediaapp')
         end,
         { description = "media server", group = "Ctrl-Super" }
     ),
