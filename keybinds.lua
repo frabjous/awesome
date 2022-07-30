@@ -131,19 +131,13 @@ globalkeys = gears.table.join(
     ),
     -- control super o to open Outlook webapp
     awful.key({ RC.vars.modkey, "Control" }, "o", function()
-            awful.spawn(RC.vars.browser ..
-                ' --app=' ..
-                'https://outlook.office365.com/mail/inbox/'
-            )
+            awful.spawn(outlookapp)
         end,
         { description = "outlook", group = "Ctrl-Super" }
     ),
     -- control super y to open youtube webapp
     awful.key({ RC.vars.modkey, "Control" }, "y", function()
-            awful.spawn(RC.vars.browser ..
-                ' --app=' ..
-                'https://youtube.com'
-            )
+            awful.spawn(youtubeapp)
         end,
         { description = "youtube", group = "Ctrl-Super" }
     ),
