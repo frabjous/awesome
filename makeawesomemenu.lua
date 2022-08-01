@@ -112,9 +112,23 @@ function handle_desktopfile(desktopfile)
                 table.insert(submenus, cat_mapping[cat])
             end
         end
-        if (#submenus > 1) then 
-            pretty.dump(newentry)
-            pretty.dump(submenus)
+        local lowername = newentry[1]:lower()
+        for l, submenu in ipairs(submenus) do
+            local entered = false
+            print(lowername .. " has submenu " .. submenu)
+            print(" a menu with length " .. #menus[submenu])
+            for m, oldentry in ipairs(menus[submenu]) do
+                local oldlowername = oldentry[1]:lower()
+                print("comparing " .. lowername .. " with " .. oldlowername)
+                if (lowername < oldlowername) then
+                    table.insert(menus[submenu], m, newentry)
+                    entered = true
+                    break
+                end
+            end
+            if (not(entered)) then
+                table.insert(menus[submenu], newentry)
+            end
         end
     end
 end
@@ -137,3 +151,5 @@ for i, folder in ipairs(desktop_folders) do
         end
     end
 end
+
+--pretty.dump(menus)
