@@ -97,7 +97,8 @@ local importantkeys = {
     'Exec',
     'Terminal',
     'Icon',
-    'NoDisplay'
+    'NoDisplay',
+    'OnlyShowIn'
 }
 
 local outputfile = os.getenv("HOME") .. "/misc/dotfiles/awesome/xdgmenu.lua"
@@ -148,6 +149,9 @@ function handle_desktopfile(desktopfile)
     end
     -- skip those with nodisplay
     if ((props.NoDisplay) and (props.NoDisplay == "true")) then
+        return
+    end
+    if ((props.OnlyShowIn) and (not(props.OnlyShowIn:match('[Aa]wesome')))) then
         return
     end
     local newentry = {
