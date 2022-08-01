@@ -100,6 +100,7 @@ local importantkeys = {
     'NoDisplay'
 }
 
+local outputfile = os.getenv("HOME") .. "/misc/dotfiles/awesome/xdgmenu.lua"
 
 local termcmd='wezterm start --'
 ----------------------------------------
@@ -271,6 +272,6 @@ for i, folder in ipairs(desktop_folders) do
     end
 end
 
---pretty.dump(menus)
+file.write(outputfile, 'xdgmenu = ' .. pretty.write(menus, '    '))
 
 
