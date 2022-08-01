@@ -28,9 +28,20 @@ local importantkeys = {
     'Icon',
     'NoDisplay'
 }
+
+local termcmd='wezterm start --'
 ----------------------------------------
 -- FUNCTIONS
 ----------------------------------------
+
+function fixedexec(execstr, termstr)
+    local rv = ''
+    if (termstr == 'true') then
+        rv = rv .. termcmd .. ' '
+    end
+    rv = rv .. execstr:gsub(' %%[A-Za-z]','')
+    return rv
+end
 
 function handle_desktopfile(desktopfile)
     local props = {}
@@ -44,10 +55,25 @@ function handle_desktopfile(desktopfile)
             end
         end
     end
-    f:close()
-    pretty.dump(props)
+    -- skip those with nodisplay
+    if ((props.NoDisplay) and (props.NoDisplay == "true")) then
+        return
+    end
+    local newentry = {
+        props.Name,
+        fixedexec(props.Exec, props.Terminal),
+        iconpath(props.Icon)
+    }
+    if (props.Categories) then
+        local mycats = stringx.split(props.Categories,';')
+        pretty.dump(mycats)
+    end
 end
 
+
+function iconpath(iconname)
+    return iconname
+end
 
 ----------------------------------------
 -- ROUTINES
