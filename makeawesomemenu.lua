@@ -74,8 +74,21 @@ local termcmd='wezterm start --'
 ----------------------------------------
 
 function categoryicon(cat)
-    -- TODO
-    return cat
+    if (cat == "Accessories") then
+        return iconpath('applications-accessories')
+    elseif (cat == "Graphics") then
+        return iconpath('applications-graphics')
+    elseif (cat == "Internet") then
+        return iconpath('applications-internet')
+    elseif (cat == "Office") then
+        return iconpath('applications-office')
+    elseif (cat == "Sound & Videos") then
+        return iconpath('applications-multimedia')
+    elseif (cat == "System Tools") then
+        return iconpath('applications-system')
+    else
+        return iconpath('applications-all')
+    end
 end
 
 function fixedexec(execstr, termstr)
