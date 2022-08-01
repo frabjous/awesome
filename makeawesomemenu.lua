@@ -169,6 +169,7 @@ end
 
 
 function iconpath(iconname)
+    iconname = iconname or 'application-default-icon'
     local prevext = path.extension(iconname)
     local hasext = ((prevext == ".png") or (prevext == ".svg"))
     local haspath = (iconname:sub(1,1) == '/')
@@ -186,7 +187,14 @@ function iconpath(iconname)
     local searchexts = { '.svg', '.png' }
     -- if has path, look there first
     if (haspath) then
-        table.insert(searchpaths, 1, path.dirname(iconname))
+        for e, ext in ipairs(searchexts) do
+            if path.exists(iconname .. ext) then
+                return iconname .. ext
+            end
+        end
+    end
+    -- strip path
+    if (haspath) then
         iconname = path.basename(iconname)
     end
     -- look for pngs first if specified as png
@@ -195,15 +203,16 @@ function iconpath(iconname)
     end
     for p, spath in ipairs(searchpaths) do
         if (path.isdir(spath)) then
-            print("looking in " .. spath)
-            --[[
             for e, ext in ipairs(searchexts) do
-                local poss = dir.getallfiles(spath, iconname .. ext)
+                print("looking in " .. spath .. " with " .. ext)
+                local poss = dir.getallfiles(spath .. '/48x48/apps' , iconname .. ext)
+                pretty.dump(poss)
+                --[[
                 if (#poss > 0) then
                     pretty.dump(poss)
                 end
+                --]]
             end
-            --]]
         end
     end
     
