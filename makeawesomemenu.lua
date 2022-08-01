@@ -69,6 +69,28 @@ local iconlocations = {
     "/usr/share/icons/hicolor"
 }
 
+local iconsizes = {
+    '48x48',
+    'scalable',
+    '64x64',
+    '96x96',
+    '128x128',
+    '144x144',
+    '24x24',
+    '32x32',
+    '192x192',
+    '16x16',
+    '256x256',
+    '512x512'
+}
+
+local iconfolders = {
+    'apps',
+    'categories',
+    'mimetypes',
+    'devices'
+}
+
 local importantkeys = {
     'Categories',
     'Name',
@@ -77,6 +99,7 @@ local importantkeys = {
     'Icon',
     'NoDisplay'
 }
+
 
 local termcmd='wezterm start --'
 ----------------------------------------
@@ -182,9 +205,14 @@ function iconpath(iconname)
         haspath = false
     end
     -- strip extensions
-    iconname = iconname:gsub('%.[^%.]*$','')
-    local searchpaths = tablex.copy(iconlocations)
+    if (hasext) then
+        iconname = iconname:gsub('%.[^%.]*$','')
+    end
     local searchexts = { '.svg', '.png' }
+    -- look for pngs first if specified as png
+    if (prevext == '.png') then
+        searchexts = { '.png', '.svg' }
+    end
     -- if has path, look there first
     if (haspath) then
         for e, ext in ipairs(searchexts) do
@@ -192,30 +220,34 @@ function iconpath(iconname)
                 return iconname .. ext
             end
         end
-    end
-    -- strip path
-    if (haspath) then
+        -- wasn't found; strip path
         iconname = path.basename(iconname)
     end
-    -- look for pngs first if specified as png
-    if (prevext == '.png') then
-        searchexts = { '.png', '.svg' }
-    end
-    for p, spath in ipairs(searchpaths) do
-        if (path.isdir(spath)) then
-            for e, ext in ipairs(searchexts) do
-                print("looking in " .. spath .. " with " .. ext)
-                local poss = dir.getallfiles(spath .. '/48x48/apps' , iconname .. ext)
-                pretty.dump(poss)
-                --[[
-                if (#poss > 0) then
-                    pretty.dump(poss)
+    for sn, isize in ipairs(iconsizes) do
+        for sc, ifldr in ipairs(iconfolders) do
+            for p, spath in ipairs(iconlocations) do
+                local fullspath = spath .. '/' .. isize .. '/' .. ifldr
+                if (path.isdir(fullspath)) then
+                    for e, ext in ipairs(searchexts) do
+                        local fulliconpath = fullspath .. '/' .. iconname .. ext
+                        if (path.exists(fulliconpath)) then
+                            return fulliconpath
+                        end
+                    end
                 end
-                --]]
             end
         end
     end
-    
+    -- last ditch; look at top level (damn you sioyek!)
+    for p, spath in ipairs(iconlocations) do
+        local parpath = path.dirname(spath)
+        for e, ext in ipairs(searchexts) do
+            local fulliconpath = parpath .. '/' .. iconname .. ext
+            if (path.exists(fulliconpath)) then
+                return fulliconpath
+            end
+        end
+    end
     return iconname
 end
 
