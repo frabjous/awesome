@@ -4,6 +4,45 @@ require('pl')
 
 local parsed = {}
 
+local cat_mapping = {
+    ["2DGraphics"] = "Graphics",
+    ["Audio"] = "Sound & Video",
+    ["AudioVideo"] = "Sound & Video",
+    ["AudioVideoEditing"] = "Sound & Video",
+    ["DesktopSettings"] = "System Tools",
+    ["Development"] = "Programming",
+    ["Education"] = "Education",
+    ["FileManager"] = "Accessories",
+    ["FileTools"] = "Accessories",
+    ["Filesystem"] = "Accessories",
+    ["FlowChart"] = "Graphics",
+    ["Graphics"] = "Graphics",
+    ["HardwareSettings"] = "System Tools",
+    ["Math"] = "Education",
+    ["Mixer"] = "Accessories",
+    ["Network"] = "Internet",
+    ["Office"] = "Office",
+    ["Player"] = "Sound & Video",
+    ["Presentation"] = "Office",
+    ["Printing"] = "System Tools",
+    ["Publishing"] = "Office",
+    ["RasterGraphics"] = "Graphics",
+    ["Recorder"] = "Accessories",
+    ["Science"] = "Education",
+    ["Settings"] = "System Tools",
+    ["Spreadsheet"] = "Office",
+    ["System"] = "System Tools",
+    ["TV"] = "Sound & Video",
+    ["TerminalEmulator"] = "System Tools",
+    ["TextEditor"] = "Accessories",
+    ["Utility"] = "Accessories",
+    ["VectorGraphics"] = "Graphics",
+    ["Video"] = "Sound & Video",
+    ["WebApps"] = "Internet",
+    ["WebBrowser"] = "Internet",
+    ["WordProcessor"] = "Office"
+}
+
 local menus = {
     Accessories = {},
     Education = {},
@@ -66,7 +105,17 @@ function handle_desktopfile(desktopfile)
     }
     if (props.Categories) then
         local mycats = stringx.split(props.Categories,';')
-        pretty.dump(mycats)
+        local submenus = {}
+        for k, cat in ipairs(mycats) do
+            if ((cat_mapping[cat]) and
+                (tablex.find(submenus,cat_mapping[cat]) == nil)) then
+                table.insert(submenus, cat_mapping[cat])
+            end
+        end
+        if (#submenus > 1) then 
+            pretty.dump(newentry)
+            pretty.dump(submenus)
+        end
     end
 end
 
