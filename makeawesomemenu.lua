@@ -2,6 +2,9 @@
 
 require('pl')
 
+package.path = os.getenv("HOME") .. "/misc/dotfiles/awesome/?.lua;" .. package.path
+local icontheme = require("currenttheme").icon_theme
+
 local parsed = {}
 
 local cat_mapping = {
@@ -57,6 +60,13 @@ local menus = {
 local desktop_folders = {
     os.getenv("HOME") .. '/.local/share/applications',
     '/usr/share/applications'
+}
+
+local iconlocations = {
+    os.getenv("HOME") .. "/.local/share/icons/" .. icontheme,
+    os.getenv("HOME") .. "/.local/share/icons/hicolor",
+    "/usr/share/icons/" .. icontheme,
+    "/usr/share/icons/hicolor"
 }
 
 local importantkeys = {
@@ -159,7 +169,44 @@ end
 
 
 function iconpath(iconname)
-    -- TODO
+    local prevext = path.extension(iconname)
+    local hasext = ((prevext == ".png") or (prevext == ".svg"))
+    local haspath = (iconname:sub(1,1) == '/')
+    -- has both, check if it exists
+    if (((hasext) and (haspath)) and (path.exists(iconname))) then
+        return iconname
+    else
+        -- doesn't exist; try to look for icon with same basename
+        iconname = path.basename(iconname)
+        haspath = false
+    end
+    -- strip extensions
+    iconname = iconname:gsub('%.[^%.]*$','')
+    local searchpaths = tablex.copy(iconlocations)
+    local searchexts = { '.svg', '.png' }
+    -- if has path, look there first
+    if (haspath) then
+        table.insert(searchpaths, 1, path.dirname(iconname))
+        iconname = path.basename(iconname)
+    end
+    -- look for pngs first if specified as png
+    if (prevext == '.png') then
+        searchexts = { '.png', '.svg' }
+    end
+    for p, spath in ipairs(searchpaths) do
+        if (path.isdir(spath)) then
+            print("looking in " .. spath)
+            --[[
+            for e, ext in ipairs(searchexts) do
+                local poss = dir.getallfiles(spath, iconname .. ext)
+                if (#poss > 0) then
+                    pretty.dump(poss)
+                end
+            end
+            --]]
+        end
+    end
+    
     return iconname
 end
 
@@ -183,6 +230,6 @@ for i, folder in ipairs(desktop_folders) do
     end
 end
 
-pretty.dump(menus)
+--pretty.dump(menus)
 
 
