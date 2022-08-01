@@ -10,15 +10,15 @@ local cat_mapping = {
     ["AudioVideo"] = "Sound & Video",
     ["AudioVideoEditing"] = "Sound & Video",
     ["DesktopSettings"] = "System Tools",
-    ["Development"] = "Programming",
-    ["Education"] = "Education",
+    --["Development"] = "Programming",
+    --["Education"] = "Education",
     ["FileManager"] = "Accessories",
     ["FileTools"] = "Accessories",
     ["Filesystem"] = "Accessories",
     ["FlowChart"] = "Graphics",
     ["Graphics"] = "Graphics",
     ["HardwareSettings"] = "System Tools",
-    ["Math"] = "Education",
+    --["Math"] = "Education",
     ["Mixer"] = "Accessories",
     ["Network"] = "Internet",
     ["Office"] = "Office",
@@ -28,7 +28,7 @@ local cat_mapping = {
     ["Publishing"] = "Office",
     ["RasterGraphics"] = "Graphics",
     ["Recorder"] = "Accessories",
-    ["Science"] = "Education",
+    --["Science"] = "Education",
     ["Settings"] = "System Tools",
     ["Spreadsheet"] = "Office",
     ["System"] = "System Tools",
@@ -44,14 +44,14 @@ local cat_mapping = {
 }
 
 local menus = {
-    Accessories = {},
-    Education = {},
-    Graphics = {},
-    Internet = {},
-    Office = {},
-    Programming = {},
-    ['Sound & Video'] = {},
-    ['System Tools'] = {}
+    {"Accessories", {}},
+    --Education = {},
+    {"Graphics", {}},
+    {"Internet", {}},
+    {"Office", {}},
+    --Programming = {},
+    {"Sound & Video", {}},
+    {"System Tools", {}}
 }
 
 local desktop_folders = {
@@ -72,6 +72,11 @@ local termcmd='wezterm start --'
 ----------------------------------------
 -- FUNCTIONS
 ----------------------------------------
+
+function categoryicon(cat)
+    -- TODO
+    return cat
+end
 
 function fixedexec(execstr, termstr)
     local rv = ''
@@ -103,6 +108,10 @@ function handle_desktopfile(desktopfile)
         fixedexec(props.Exec, props.Terminal),
         iconpath(props.Icon)
     }
+    -- sioyek's categorization is nonsense
+    if (props.Name == 'Sioyek') then
+        props.Categories = "Office"
+    end
     if (props.Categories) then
         local mycats = stringx.split(props.Categories,';')
         local submenus = {}
@@ -114,20 +123,22 @@ function handle_desktopfile(desktopfile)
         end
         local lowername = newentry[1]:lower()
         for l, submenu in ipairs(submenus) do
-            local entered = false
-            print(lowername .. " has submenu " .. submenu)
-            print(" a menu with length " .. #menus[submenu])
-            for m, oldentry in ipairs(menus[submenu]) do
-                local oldlowername = oldentry[1]:lower()
-                print("comparing " .. lowername .. " with " .. oldlowername)
-                if (lowername < oldlowername) then
-                    table.insert(menus[submenu], m, newentry)
-                    entered = true
+            for n, mgroup in ipairs(menus) do
+                if (mgroup[1] == submenu) then
+                    local entered = false
+                    for m, oldentry in ipairs(mgroup[2]) do
+                        local oldlowername = oldentry[1]:lower()
+                        if (lowername < oldlowername) then
+                            table.insert(mgroup[2], m, newentry)
+                            entered = true
+                            break
+                        end
+                    end
+                    if (not(entered)) then
+                        table.insert(mgroup[2], newentry)
+                    end
                     break
                 end
-            end
-            if (not(entered)) then
-                table.insert(menus[submenu], newentry)
             end
         end
     end
@@ -135,12 +146,19 @@ end
 
 
 function iconpath(iconname)
+    -- TODO
     return iconname
 end
 
 ----------------------------------------
--- ROUTINES
+-- MAIN ROUTINE
 ----------------------------------------
+
+-- fill in menu group icons
+for x, mgroup in ipairs(menus) do
+    table.insert(mgroup, categoryicon(mgroup[1]))
+end
+
 for i, folder in ipairs(desktop_folders) do
     local all_desktops = dir.getallfiles(folder, '*.desktop')
     for j, desktopfile in ipairs(all_desktops) do
@@ -152,4 +170,6 @@ for i, folder in ipairs(desktop_folders) do
     end
 end
 
---pretty.dump(menus)
+pretty.dump(menus)
+
+
