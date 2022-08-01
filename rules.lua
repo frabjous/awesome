@@ -65,10 +65,13 @@ awful.rules.rules = {
             "Picture-in-Picture",
             "Picture in picture"
         },
+        instance = {
+            "Toolkit"
+        },
         class = {
             "mpv"
         },
-    }, properties = { sticky = true, ontop = true } },
+    }, properties = { floating = true, sticky = true, ontop = true } },
     -- make music browse full screen
     { rule_any = {
         class = { "music_browse", "info_term" }
