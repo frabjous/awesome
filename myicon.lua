@@ -72,6 +72,9 @@ function myicon(name, class)
     if (class:match('music_browse')) then
         return ''
     end
+    if (name:match('^vpn protected shell$')) then
+        return ''
+    end
     if ((class:match('^kitty$')) or (class:match('^Alacritty$')) or
         (class:match('^[Uu][Rr][Xx][Vv][Tt]$')) or
         (name:match('^wezterm')) or (class:match('wezterm$')) or
