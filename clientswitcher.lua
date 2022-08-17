@@ -100,17 +100,6 @@ _M.switcher = awful.popup ({
     shape        = gears.shape.rounded_rect
 })
 
-_G.awful_layout_change = function (n)
-    awful.screen.focused().layout_popup.visible = true
-    awful.layout.inc(n)
-    if (layout_popup_timer.start) then
-        layout_popup_timer:stop()
-        layout_popup_timer:again()
-    else
-        layout_popup_timer:start()
-    end
-end
-
 _M.timer = gears.timer({
     timeout = 2,
     callback = function()

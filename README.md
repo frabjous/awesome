@@ -8,7 +8,7 @@ For a video of the output: [YouTube Link](https://www.youtube.com/watch?v=YmlSYy
 
 (1) [AwesomeWM](https://awesomewm.org/)
 (2) [Lain](https://github.com/lcpz/lain) widgets
-(3) [bwm-ng](https://www.gropp.org/?id=projects&sub=bwm-ng) for the bandwidth monitor; if using wifi it presupposed you're using [iwd](https://iwd.wiki.kernel.org/), but could be changed.
+(3) [bwm-ng](https://www.gropp.org/?id=projects&sub=bwm-ng) for the bandwidth monitor; if using wifi it presupposes you're using [iwd](https://iwd.wiki.kernel.org/), but could be changed.
 (4) [mpd](https://www.musicpd.org/) with [mpc](https://www.musicpd.org/clients/mpc/) for the music widget
 (5) [clipmenu](https://github.com/cdown/clipmenu) and [rofi](https://github.com/davatorium/rofi) for the clipboard widget
 (6) [wezterm](https://wezfurlong.org/wezterm/) is the default terminal and [neovim](https://neovim.io/) the default editor.
