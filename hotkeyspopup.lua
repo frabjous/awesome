@@ -659,6 +659,7 @@ local myhotkeys = {
                     f         = 'find',
                     g         = 'find next',
                     o         = 'browse files',
+                    p         = 'goto page',
                     ['left']  = 'history back',
                     ['right'] = 'history forward',
                     [']']     = 'goto def'
