@@ -1101,26 +1101,22 @@ awful.screen.connect_for_each_screen(function(s)
         end),
         awful.button({ RC.vars.altkey }, 1, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- schedshowdelay.sh ' ..
-                    'schedule'
+                'wezterm start --class info_term -- sched.sh delay add'
             )
         end),
         awful.button({ "Shift" }, 1, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- schedshowdelay.sh ' ..
-                    'schedule'
+                'wezterm start --class info_term -- sched.sh delay add'
             )
         end),
         awful.button({ "Control" }, 1, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- schedshowdelay.sh ' ..
-                    'schedule'
+                'wezterm start --class info_term -- sched.sh delay add'
             )
         end),
         awful.button({}, 2, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- schedshowdelay.sh ' ..
-                    'schedule'
+                'wezterm start --class info_term -- sched.sh delay add'
             )
         end)
     ))

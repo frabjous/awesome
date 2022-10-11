@@ -63,7 +63,7 @@ function myicon(name, class)
         (class:match('^[Mm][Uu][Pp][Dd][Ff]$'))) then
         return ''
     end
-    if (name:match('schedshowdelay')) then
+    if (name:match('sched.sh')) then
         return ''
     end
     if (class:match('info_term')) then
