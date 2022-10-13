@@ -423,7 +423,7 @@ _M.volume.widget.tooltip = awful.tooltip({
 })
 
 local netw, netwtimer = awful.widget.watch(
-    os.getenv("HOME") .. '/bin/netstate-awesome.sh "' ..
+    'bash ' .. os.getenv("HOME") .. '/.config/awesome/netstate-awesome.sh "' ..
         beautiful.icon_color .. '" "' .. beautiful.fg_alert .. '"',
     5,
     function(widget, stdout, stderr, exitrason, exitcode)

@@ -25,8 +25,7 @@ There may be other things. I wasn't really intending to make these public. As is
 ### Installation
 
 (1) Clone this repo as your `~/.config/awesome` (I.e., `cd ~/.config && git clone git@github.com:frabjous/awesome.git`.)
-(2) Copy or symlink the file `netstate-awesome.sh` to somewhere in your `$PATH`.
-(3) Create the theme files or symlinks mentioned below.
+(2) Create the theme files or symlinks mentioned below.
 
 There are probably other steps I can't quite remember. Let me know if it doesn't work for you and it'll probably come to me.
 
