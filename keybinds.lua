@@ -194,7 +194,7 @@ globalkeys = gears.table.join(
     -- super t for latex test file
     awful.key({ RC.vars.modkey }, "t", function()
             awful.spawn(RC.vars.terminal .. ' start -- nvim ' ..
-                os.getenv("HOME") .. '/tmp/test.tex')
+                os.getenv("HOME") .. '/tmp/scratch.tex')
         end,
         { description = "latex test", group = "Super" }
     ),
