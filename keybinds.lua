@@ -150,9 +150,9 @@ globalkeys = gears.table.join(
     ),
     -- super alt c to open alternative browser
     awful.key({ RC.vars.modkey, RC.vars.altkey }, "c", function()
-            awful.spawn('firefox -P default')
+            awful.spawn('chromium')
         end,
-        { description = "firefox", group = "Alt-Super" }
+        { description = "chromium", group = "Alt-Super" }
     ),
     -- super e for editor
     awful.key({ RC.vars.modkey }, "e", function()
