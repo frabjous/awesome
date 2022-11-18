@@ -168,8 +168,9 @@ globalkeys = gears.table.join(
     ),
     -- super o for file opener menu
     awful.key({ RC.vars.modkey }, "o", function()
-            awful.spawn('sh -c \'o.sh "$(zenity --title="Choose a ' ..
-            'file to open" --file-selection)"\'')
+        awful.spawn.with_shell('fd . ~ --type file | rofi ' ..
+        '-dmenu -i -matching fuzzy -sort -sorting-method ' ..
+        'fzf | xargs o.sh')
         end,
         { description = "open file", group = "Super" }
     ),
