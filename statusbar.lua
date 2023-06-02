@@ -314,7 +314,7 @@ local cpu = lain.widget.cpu({
             textcolor = beautiful.fg_alert
         end
         widget:set_markup('<span font_family="Symbols Nerd Font" ' ..
-            'font_size="16pt" foreground="' .. iconcolor .. '">' ..
+            'font_size="16pt" foreground="' .. iconcolor .. '">' ..
             '</span><span foreground="' .. textcolor .. '">' ..
             tostring(usage) .. '%</span>')
         local core = 1
@@ -612,7 +612,7 @@ quakew:buttons(gears.table.join(
 -- scratchpad toggler
 local scratchw = wibox.widget({
     markup = '<span foreground="' .. beautiful.dropdown_icon ..
-        '" font_family="Symbols Nerd Font" font_size="14pt"></span>',
+        '" font_family="Symbols Nerd Font" font_size="14pt"></span>',
     align = 'center',
     valign = 'center',
     widget = wibox.widget.textbox
