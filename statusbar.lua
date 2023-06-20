@@ -470,7 +470,7 @@ local updatestatus, updstatustimer = awful.widget.watch(
                 if (widget.tooltip) then
                     widget.tooltip.text = 'kron postponed'
                 end
-            elseif (stdout == 'ﲊ') then
+            elseif (stdout == '') then
                 nscolor = beautiful.info_color
                 if (widget.tooltip) then
                     widget.tooltip.text = 'kronjob taking too long'
