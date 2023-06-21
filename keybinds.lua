@@ -166,6 +166,12 @@ globalkeys = gears.table.join(
         end,
         { description = "clipboard menu", group = "Super" }
     ),
+    -- super a to read xclip current selection
+    awful.key({ RC.vars.modkey }, "a", function()
+            awful.spawn('readit.sh')
+        end,
+        { description = "read clipboard selection", group = "Super" }
+    ),
     -- super o for file opener menu
     awful.key({ RC.vars.modkey }, "o", function()
         awful.spawn.with_shell('fd . ~ --type file | rofi ' ..
