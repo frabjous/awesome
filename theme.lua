@@ -63,6 +63,9 @@ theme.fg_alert = theme.themecolors.red
 -- clipboard icon, should be silverish?
 theme.clipboard_icon = theme.themecolors.gray6
 
+-- readit icon, same
+theme.readit_icon = theme.themecolors.gray6
+
 -- dropdown icons
 theme.dropdown_icon = theme.themecolors.gray6
 
