@@ -7,34 +7,17 @@ local host = awesome.hostname
 local username = os.getenv("USER")
 
 -- start browsers
-if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
-
-    if (os.getenv("KCK_START_WEBAPPS") == "yes") then
-
-        -- start outlook
-        awful.spawn.once(
-            'outlookapp',
-            { screen = RC.startscreen }
-        )
-
-        -- start youtube after 15 seconds
-        gears.timer({
-            timeout = 15,
-            autostart = true,
-            single_shot = true,
-            callback = function()
-                awful.spawn.once(
-                    'youtubeapp',
-                    { screen = RC.startscreen }
-                )
-            end
-        })
-    end
+if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then 
 
     if (os.getenv("KCK_START_LECTURE") == "yes") then
         awful.spawn.once (
             RC.vars.browser .. ' "https://logic.umasscreate.net"', {}
         )
+    else
+        if (os.getenv("KCK_START_WEBAPPS") == "yes") then
+            awful.spawn.once( RC.vars.browser )
+        end
+
     end
 
     -- create a folder in /tmp to mark run since boot
