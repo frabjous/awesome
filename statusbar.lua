@@ -579,8 +579,31 @@ clipboardw:buttons(gears.table.join(
     end)
 ))
 
--- Quake Terminal Toggler
 
+-- readit button
+local readitw = wibox.widget({
+    markup = '<span foreground="' .. beautiful.readit_icon ..
+        '" font_family="Symbols Nerd Font" font_size="14pt"></span>',
+    align = 'center',
+    valign = 'center',
+    widget = wibox.widget.textbox
+})
+
+-- give it a tooltip
+readitw.tooltip = awful.tooltip({
+    objects = { clipboardw },
+    text = 'read aloud highlighted text with mpd'
+})
+
+-- make it clickable
+readitw:buttons(gears.table.join(
+    readitw:buttons(),
+    awful.button({}, 1, nil, function()
+        awful.spawn('readit.sh')
+    end)
+))
+
+-- Quake Terminal Toggler
 local quakew = wibox.widget({
     markup = '<span foreground="' .. beautiful.dropdown_icon ..
         '" font_family="Symbols Nerd Font" font_size="14pt"></span>',
@@ -1158,6 +1181,8 @@ awful.screen.connect_for_each_screen(function(s)
             s.mytextclock,
             arleft,
             clipboardw,
+            spacey,
+            readitw,
             spacey,
             scratchw,
             spacey,
