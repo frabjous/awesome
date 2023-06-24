@@ -1221,6 +1221,8 @@ awful.screen.connect_for_each_screen(function(s)
             arleft,
             clipboardw,
             spacey,
+            readitw,
+            spacey,
             scratchw,
             spacey,
             quakew,
