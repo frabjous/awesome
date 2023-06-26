@@ -7,22 +7,25 @@ local host = awesome.hostname
 local username = os.getenv("USER")
 
 -- start browsers
-if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then 
+--if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then 
+--
+--    if (os.getenv("KCK_START_LECTURE") == "yes") then
+--        awful.spawn.once (
+--            RC.vars.browser .. ' "https://logic.umasscreate.net"', {}
+--        )
+--    else
+--        if (os.getenv("KCK_START_WEBAPPS") == "yes") then
+--            awful.spawn.once( RC.vars.browser )
+--        end
+--
+--    end
+--
+--    -- create a folder in /tmp to mark run since boot
+--    gears.filesystem.make_directories("/tmp/awesome.started")
+--end
 
-    if (os.getenv("KCK_START_LECTURE") == "yes") then
-        awful.spawn.once (
-            RC.vars.browser .. ' "https://logic.umasscreate.net"', {}
-        )
-    else
-        if (os.getenv("KCK_START_WEBAPPS") == "yes") then
-            awful.spawn.once( RC.vars.browser )
-        end
-
-    end
-
-    -- create a folder in /tmp to mark run since boot
-    gears.filesystem.make_directories("/tmp/awesome.started")
-end
+-- start browser
+awful.spawn.once( RC.vars.browser )
 
 -- dropdown terminal
 local quake = lain.util.quake({
