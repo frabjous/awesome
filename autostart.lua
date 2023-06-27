@@ -7,7 +7,7 @@ local host = awesome.hostname
 local username = os.getenv("USER")
 
 -- start browsers
---if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then 
+--if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 --
 --    if (os.getenv("KCK_START_LECTURE") == "yes") then
 --        awful.spawn.once (
@@ -25,7 +25,9 @@ local username = os.getenv("USER")
 --end
 
 -- start browser
-awful.spawn.once( RC.vars.browser )
+if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
+    awful.spawn.once( RC.vars.browser )
+end
 
 -- dropdown terminal
 local quake = lain.util.quake({

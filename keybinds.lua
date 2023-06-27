@@ -411,6 +411,7 @@ globalkeys = gears.table.join(
         end,
         { description = "menubar", group = "Shift-Super" }
     ),
+    -- super 0 focuses all tags
     awful.key({ RC.vars.modkey }, "0",
         function ()
             local screen = awful.screen.focused()

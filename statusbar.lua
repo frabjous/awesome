@@ -732,6 +732,14 @@ local arright = wibox.widget {
     thickness = 1
 }
 
+--taglist full icons
+local displaytags = {
+    [1] = '1:<span font_family="Symbols Nerd Font" font_size="11pt">󰖟</span>',
+    [2] = '2:<span font_family="Symbols Nerd Font" font_size="9pt">󱆿</span>',
+    [3] = '3:<span font_family="Symbols Nerd Font" font_size="11pt"></span>',
+    [4] = '4:<span font_family="Symbols Nerd Font" font_size="9pt"></span>'
+}
+
 -- taglist tag update function
 function update_taglist_tag(widg, t, index, tt)
     local tagbg = widg:get_children_by_id("background_shape")[1]
@@ -757,7 +765,7 @@ function update_taglist_tag(widg, t, index, tt)
     end
     widg:get_children_by_id("index_role")[1].markup =
         '<span foreground="' .. indexcolor .. '"><b>' ..
-            index .. '</b></span>'
+            displaytags[index] .. '</b></span>'
     if (widg.tooltip) then
         local ttt = ''
         local needlb = false
@@ -945,7 +953,7 @@ awful.screen.connect_for_each_screen(function(s)
                             beautiful.taglist_shape_border,
                         id = "background_shape",
                         widget = wibox.container.background,
-                        forced_width = 20
+                        forced_width = 36
                     },
                     { -- spacer?
                         margins = 1,
@@ -955,8 +963,8 @@ awful.screen.connect_for_each_screen(function(s)
                 },
                 left = 2,
                 right = 2,
-                top = 7,
-                bottom = 7,
+                top = 5,
+                bottom = 5,
                 widget = wibox.container.margin
             },
             widget = wibox.container.background,
