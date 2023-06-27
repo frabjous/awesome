@@ -133,7 +133,8 @@ globalkeys = gears.table.join(
         { description = "browser", group = "Super" }
     ),
     -- control super o to open O
-    -- utlook webapp
+    -- outlook webapp
+    --[[ COMMENTED OUT WEBAPPS
     awful.key({ RC.vars.modkey, "Control" }, "o", function()
             awful.spawn('outlookapp')
         end,
@@ -151,17 +152,27 @@ globalkeys = gears.table.join(
         end,
         { description = "media server", group = "Ctrl-Super" }
     ),
+    --]]
     -- super alt c to open alternative browser
     awful.key({ RC.vars.modkey, RC.vars.altkey }, "c", function()
+            awful.screen.focused().tags[1]:view_only()
             awful.spawn('chromium')
         end,
         { description = "chromium", group = "Alt-Super" }
     ),
     -- super e for editor
     awful.key({ RC.vars.modkey }, "e", function()
+            awful.screen.focused().tags[2]:view_only()
             awful.spawn(RC.vars.editor_cmd)
         end,
         { description = "editor", group = "Super" }
+    ),
+    -- super n for logs
+    awful.key({ RC.vars.modkey }, "n", function()
+            awful.screen.focused().tags[4]:view_only()
+            awful.spawn(RC.vars.logs_cmd)
+        end,
+        { description = "server logs", group = "Super" }
     ),
     -- super v for clipboard menu
     awful.key({ RC.vars.modkey }, "v", function()
@@ -203,6 +214,7 @@ globalkeys = gears.table.join(
     ),
     -- super t for latex test file
     awful.key({ RC.vars.modkey }, "t", function()
+            awful.screen.focused().tags[2]:view_only()
             awful.spawn(RC.vars.terminal .. ' start -- nvim ' ..
                 os.getenv("HOME") .. '/tmp/scratch.tex')
         end,
@@ -568,8 +580,8 @@ clientkeys = gears.table.join(
         end,
         { description = "toggle sticky", group = "Super" }
     ),
-    -- super n to minimize
-    awful.key({ RC.vars.modkey }, "n",
+    -- super g to minimize
+    awful.key({ RC.vars.modkey }, "g",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.

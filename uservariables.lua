@@ -7,6 +7,7 @@ local _M = {
     -- browser    = os.getenv("BROWSER") or "qutebrowser",
     browser    = os.getenv("BROWSER") or "kbrowser",
     editor_cmd = "wezterm start -- nvim",
+    logs_cmd = "wezterm start -- tail -f /var/log/nginx/nginx.log",
     modkey     = "Mod4",
     altkey     = "Mod1"
 }

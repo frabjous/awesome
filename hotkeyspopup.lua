@@ -528,7 +528,7 @@ local myhotkeys = {
                 modifiers = { alt, ctrl },
                 keys = {
                     c = 'colorschemes',
-                    t = 'fzf open (home)'
+                    t = 'fzf open (pwd)'
                 }
             },
             {
@@ -558,7 +558,7 @@ local myhotkeys = {
                     q         = 'quit',
                     r         = 'replace',
                     s         = 'save',
-                    t         = 'fzf open (cwd)',
+                    t         = 'fzf open (home)',
                     u         = 'unicode/emoji',
                     v         = 'paste',
                     w         = 'toggle wrap',
