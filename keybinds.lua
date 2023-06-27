@@ -107,7 +107,8 @@ globalkeys = gears.table.join(
     -- Standard program
     -- super return to spawn terminal
     awful.key({ RC.vars.modkey }, "Return", function ()
-            awful.spawn(RC.vars.terminal .. ' start')
+            awful.screen.focused().tags[3]:view_only()
+            awful.spawn(RC.vars.terminal .. ' start' )
         end,
         { description = "terminal", group = "Super" }
     ),
@@ -119,12 +120,14 @@ globalkeys = gears.table.join(
     ),
     -- super w to open ssh to work
     awful.key({ RC.vars.modkey }, "w", function()
+            awful.screen.focused().tags[3]:view_only()
             awful.spawn('wezterm ssh work')
         end,
         { description = "ssh work", group = "Super" }
     ),
     -- super c to launch default browser
     awful.key({ RC.vars.modkey }, "c", function ()
+            awful.screen.focused().tags[1]:view_only()
             awful.spawn(RC.vars.browser)
         end,
         { description = "browser", group = "Super" }

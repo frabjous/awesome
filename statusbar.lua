@@ -735,9 +735,9 @@ local arright = wibox.widget {
 --taglist full icons
 local displaytags = {
     [1] = '1:<span font_family="Symbols Nerd Font" font_size="11pt">󰖟</span>',
-    [2] = '2:<span font_family="Symbols Nerd Font" font_size="9pt">󱆿</span>',
+    [2] = '2:<span font_family="Symbols Nerd Font" font_size="11pt">󰅩</span>',
     [3] = '3:<span font_family="Symbols Nerd Font" font_size="11pt"></span>',
-    [4] = '4:<span font_family="Symbols Nerd Font" font_size="9pt"></span>'
+    [4] = '4:<span font_family="Symbols Nerd Font" font_size="10pt"></span>'
 }
 
 -- taglist tag update function
