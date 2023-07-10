@@ -23,12 +23,10 @@ local username = os.getenv("USER")
 --    -- create a folder in /tmp to mark run since boot
 --    gears.filesystem.make_directories("/tmp/awesome.started")
 --end
-
 -- start browser
 if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
-    awful.spawn.once( RC.vars.browser )
+    awful.spawn.once( RC.vars.browser, {}, function (c) return c.class == 'firefox' end )
 end
-
 -- dropdown terminal
 local quake = lain.util.quake({
     app = "wezterm",
