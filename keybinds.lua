@@ -107,7 +107,6 @@ globalkeys = gears.table.join(
     -- Standard program
     -- super return to spawn terminal
     awful.key({ RC.vars.modkey }, "Return", function ()
-            awful.screen.focused().tags[3]:view_only()
             awful.spawn(RC.vars.terminal .. ' start' )
         end,
         { description = "terminal", group = "Super" }
@@ -120,14 +119,12 @@ globalkeys = gears.table.join(
     ),
     -- super w to open ssh to work
     awful.key({ RC.vars.modkey }, "w", function()
-            awful.screen.focused().tags[3]:view_only()
             awful.spawn('wezterm ssh work')
         end,
         { description = "ssh work", group = "Super" }
     ),
     -- super c to launch default browser
     awful.key({ RC.vars.modkey }, "c", function ()
-            awful.screen.focused().tags[1]:view_only()
             awful.spawn(RC.vars.browser)
         end,
         { description = "browser", group = "Super" }
@@ -155,21 +152,18 @@ globalkeys = gears.table.join(
     --]]
     -- super alt c to open alternative browser
     awful.key({ RC.vars.modkey, RC.vars.altkey }, "c", function()
-            awful.screen.focused().tags[1]:view_only()
             awful.spawn('chromium')
         end,
         { description = "chromium", group = "Alt-Super" }
     ),
     -- super e for editor
     awful.key({ RC.vars.modkey }, "e", function()
-            awful.screen.focused().tags[2]:view_only()
             awful.spawn(RC.vars.editor_cmd)
         end,
         { description = "editor", group = "Super" }
     ),
     -- super n for logs
     awful.key({ RC.vars.modkey }, "n", function()
-            awful.screen.focused().tags[4]:view_only()
             awful.spawn(RC.vars.logs_cmd)
         end,
         { description = "server logs", group = "Super" }
@@ -214,7 +208,6 @@ globalkeys = gears.table.join(
     ),
     -- super t for latex test file
     awful.key({ RC.vars.modkey }, "t", function()
-            awful.screen.focused().tags[2]:view_only()
             awful.spawn(RC.vars.terminal .. ' start -- nvim ' ..
                 os.getenv("HOME") .. '/tmp/scratch.tex')
         end,
@@ -653,58 +646,58 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 4 do
-    globalkeys = gears.table.join(globalkeys,
-        -- Super 1 - 9; View tag only.
-        awful.key({ RC.vars.modkey }, "#" .. i + 9,
-            function ()
-                local screen = awful.screen.focused()
-                local tag = screen.tags[i]
-                if tag then
-                    tag:view_only()
-                end
-            end,
-            { description = "view tag #"..i, group = "Super" }
-        ),
-        -- Super Control 1-9 Toggle tag display.
-        awful.key({ RC.vars.modkey, "Control" }, "#" .. i + 9,
-            function ()
-                local screen = awful.screen.focused()
-                local tag = screen.tags[i]
-                if tag then
-                    awful.tag.viewtoggle(tag)
-                end
-            end,
-            { description = "toggle tag #" .. i, group = "Ctrl-Super" }
-        ),
-        -- Super Shift 1-9: Move client to tag.
-        awful.key({ RC.vars.modkey, "Shift" }, "#" .. i + 9,
-            function ()
-                if client.focus then
-                    local tag = client.focus.screen.tags[i]
-                    if tag then
-                        client.focus:move_to_tag(tag)
-                    end
-                end
-            end,
-            { description = "move to tag #" .. i,
-                group = "Shift-Super" }
-        ),
-        -- Super Shift Control Num = Toggle tag on focused client.
-        awful.key({ RC.vars.modkey, "Control", "Shift" }, "#" .. i + 9,
-            function ()
-                if client.focus then
-                    local tag = client.focus.screen.tags[i]
-                    if tag then
-                        client.focus:toggle_tag(tag)
-                    end
-                end
-            end,
-            { description = "toggle focused client on tag #" .. i,
-                group = "Ctrl-Shift-Super" }
-        )
-    )
-end
+--for i = 1, 4 do
+--    globalkeys = gears.table.join(globalkeys,
+--        -- Super 1 - 9; View tag only.
+--        awful.key({ RC.vars.modkey }, "#" .. i + 9,
+--            function ()
+--                local screen = awful.screen.focused()
+--                local tag = screen.tags[i]
+--                if tag then
+--                    tag:view_only()
+--                end
+--            end,
+--            { description = "view tag #"..i, group = "Super" }
+--        ),
+--        -- Super Control 1-9 Toggle tag display.
+--        awful.key({ RC.vars.modkey, "Control" }, "#" .. i + 9,
+--            function ()
+--                local screen = awful.screen.focused()
+--                local tag = screen.tags[i]
+--                if tag then
+--                    awful.tag.viewtoggle(tag)
+--                end
+--            end,
+--            { description = "toggle tag #" .. i, group = "Ctrl-Super" }
+--        ),
+--        -- Super Shift 1-9: Move client to tag.
+--        awful.key({ RC.vars.modkey, "Shift" }, "#" .. i + 9,
+--            function ()
+--                if client.focus then
+--                    local tag = client.focus.screen.tags[i]
+--                    if tag then
+--                        client.focus:move_to_tag(tag)
+--                    end
+--                end
+--            end,
+--            { description = "move to tag #" .. i,
+--                group = "Shift-Super" }
+--        ),
+--        -- Super Shift Control Num = Toggle tag on focused client.
+--        awful.key({ RC.vars.modkey, "Control", "Shift" }, "#" .. i + 9,
+--            function ()
+--                if client.focus then
+--                    local tag = client.focus.screen.tags[i]
+--                    if tag then
+--                        client.focus:toggle_tag(tag)
+--                    end
+--                end
+--            end,
+--            { description = "toggle focused client on tag #" .. i,
+--                group = "Ctrl-Shift-Super" }
+--        )
+--    )
+--end
 
 clientbuttons = gears.table.join(
     -- click a client activates it

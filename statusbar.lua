@@ -14,28 +14,28 @@ local ll = require("layoutlist")
 local _M = {}
 
 -- Buttons for Taglist
-taglist_buttons = gears.table.join(
-    -- left click views only a tag clicked on
-    awful.button({ }, 1, function(t) t:view_only() end),
-    -- super-left click movies focuses client there
-    awful.button({ RC.vars.modkey }, 1, function(t)
-        if client.focus then
-            client.focus:move_to_tag(t)
-        end
-    end),
-    -- right click toggles whether tag is shown
-    awful.button({}, 3, awful.tag.viewtoggle),
-    -- super right click toggles whether focuses window has tag
-    awful.button({ RC.vars.modkey }, 3, function(t)
-        if client.focus then
-            client.focus:toggle_tag(t)
-        end
-    end),
-    -- wheel down views next tag
-    awful.button({}, 5, function(t) awful.tag.viewnext(t.screen) end),
-    -- wheel up views previous tag
-    awful.button({}, 4, function(t) awful.tag.viewprev(t.screen) end)
-)
+--taglist_buttons = gears.table.join(
+--    -- left click views only a tag clicked on
+--    awful.button({ }, 1, function(t) t:view_only() end),
+--    -- super-left click movies focuses client there
+--    awful.button({ RC.vars.modkey }, 1, function(t)
+--        if client.focus then
+--            client.focus:move_to_tag(t)
+--        end
+--    end),
+--    -- right click toggles whether tag is shown
+--    awful.button({}, 3, awful.tag.viewtoggle),
+--    -- super right click toggles whether focuses window has tag
+--    awful.button({ RC.vars.modkey }, 3, function(t)
+--        if client.focus then
+--            client.focus:toggle_tag(t)
+--        end
+--    end),
+--    -- wheel down views next tag
+--    awful.button({}, 5, function(t) awful.tag.viewnext(t.screen) end),
+--    -- wheel up views previous tag
+--    awful.button({}, 4, function(t) awful.tag.viewprev(t.screen) end)
+--)
 
 -- Buttons for tasklist *** highly specialized now?
 tasklist_buttons = gears.table.join(
@@ -205,7 +205,6 @@ mpd.widget.tooltip = awful.tooltip({
     text = 'play/pause mpd'
 })
 
--- MEMORY USAGE INDICATOR
 
 -- MPD toggler menu
 
@@ -233,7 +232,6 @@ local spacey = wibox.widget({
     text = ' ',
     widget = wibox.widget.textbox
 })
-
 
 -- DISK USAGE INDICATOR
 local disk = lain.widget.fs({
@@ -733,60 +731,60 @@ local arright = wibox.widget {
 }
 
 --taglist full icons
-local displaytags = {
-    [1] = '1:<span font_family="Symbols Nerd Font" font_size="11pt">󰖟</span>',
-    [2] = '2:<span font_family="Symbols Nerd Font" font_size="11pt">󰅩</span>',
-    [3] = '3:<span font_family="Symbols Nerd Font" font_size="11pt"></span>',
-    [4] = '4:<span font_family="Symbols Nerd Font" font_size="10pt"></span>'
-}
+--local displaytags = {
+--    [1] = '1:<span font_family="Symbols Nerd Font" font_size="11pt">󰖟</span>',
+--    [2] = '2:<span font_family="Symbols Nerd Font" font_size="11pt">󰅩</span>',
+--    [3] = '3:<span font_family="Symbols Nerd Font" font_size="11pt"></span>',
+--    [4] = '4:<span font_family="Symbols Nerd Font" font_size="10pt"></span>'
+--}
 
 -- taglist tag update function
-function update_taglist_tag(widg, t, index, tt)
-    local tagbg = widg:get_children_by_id("background_shape")[1]
-    if (tagbg) then
-        local selected = t.selected
-        if (selected) then
-            tagbg.shape_border_color =
-                beautiful.taglist_shape_border_focus
-        else
-            tagbg.shape_border_color = beautiful.taglist_shape_border
-        end
-    end
-    local occupied = false
-    for _,c in pairs(t:clients()) do
-        if not (c.skip_taskbar) then
-            occupied = true
-            break
-        end
-    end
-    local indexcolor = beautiful.taglist_index_empty
-    if (occupied) then
-        indexcolor = beautiful.taglist_index_occupied
-    end
-    widg:get_children_by_id("index_role")[1].markup =
-        '<span foreground="' .. indexcolor .. '"><b>' ..
-            displaytags[index] .. '</b></span>'
-    if (widg.tooltip) then
-        local ttt = ''
-        local needlb = false
-        for _, cl in ipairs(t:clients()) do
-            if not (cl.hidden) and (cl.name) and
-                not (cl.skip_taskbar) and (cl.valid) then
-                if (needlb) then
-                    ttt = ttt .. '\n'
-                end
-                ttt = ttt .. cl.name
-                needlb = true
-            end
-        end
-        if (ttt == '') then
-            widg.tooltip.text = "view tag " .. tostring(index) ..
-            " (empty)"
-        else
-            widg.tooltip.text = ttt
-        end
-    end
-end
+--function update_taglist_tag(widg, t, index, tt)
+--    local tagbg = widg:get_children_by_id("background_shape")[1]
+--    if (tagbg) then
+--        local selected = t.selected
+--        if (selected) then
+--            tagbg.shape_border_color =
+--                beautiful.taglist_shape_border_focus
+--        else
+--            tagbg.shape_border_color = beautiful.taglist_shape_border
+--        end
+--    end
+--    local occupied = false
+--    for _,c in pairs(t:clients()) do
+--        if not (c.skip_taskbar) then
+--            occupied = true
+--            break
+--        end
+--    end
+--    local indexcolor = beautiful.taglist_index_empty
+--    if (occupied) then
+--        indexcolor = beautiful.taglist_index_occupied
+--    end
+--    widg:get_children_by_id("index_role")[1].markup =
+--        '<span foreground="' .. indexcolor .. '"><b>' ..
+--            displaytags[index] .. '</b></span>'
+--    if (widg.tooltip) then
+--        local ttt = ''
+--        local needlb = false
+--        for _, cl in ipairs(t:clients()) do
+--            if not (cl.hidden) and (cl.name) and
+--                not (cl.skip_taskbar) and (cl.valid) then
+--                if (needlb) then
+--                    ttt = ttt .. '\n'
+--                end
+--                ttt = ttt .. cl.name
+--                needlb = true
+--            end
+--        end
+--        if (ttt == '') then
+--            widg.tooltip.text = "view tag " .. tostring(index) ..
+--            " (empty)"
+--        else
+--            widg.tooltip.text = ttt
+--        end
+--    end
+--end
 
 function fixwname(cname)
     if (cname == '~') then cname = '~ wezterm' end
@@ -902,7 +900,8 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     awful.tag(
-        { "1", "2", "3", "4" },
+        { "1", "2" },
+--        { "1", "2", "3", "4" },
         s,
         awful.layout.layouts[1]
     )
@@ -926,74 +925,74 @@ awful.screen.connect_for_each_screen(function(s)
     ---------------------------------------------------------------
     -- TAGLIST WIDGET                                            --
     ---------------------------------------------------------------
-    s.mytaglist = awful.widget.taglist({
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
-        layout = {
-            layout = wibox.layout.fixed.horizontal
-        },
-        widget_template = {
-        -- main template for tag items
-            {--container for tag items
-                {--layout for tag items
-                    { -- background container with tag shape
-                        {-- margin container for index textbox
-                            {-- index textbox
-                                id = "index_role",
-                                widget = wibox.widget.textbox,
-                            },
-                            left = 9,
-                            widget = wibox.container.margin
-                        },
-
-                        bg = beautiful.taglist_shape,
-                        shape = gears.shape.rectangular_tag,
-                        shape_border_width = 1.5,
-                        shape_border_color =
-                            beautiful.taglist_shape_border,
-                        id = "background_shape",
-                        widget = wibox.container.background,
-                        forced_width = 36
-                    },
-                    { -- spacer?
-                        margins = 1,
-                        widget = wibox.container.margin
-                    },
-                    layout = wibox.layout.fixed.horizontal,
-                },
-                left = 2,
-                right = 2,
-                top = 5,
-                bottom = 5,
-                widget = wibox.container.margin
-            },
-            widget = wibox.container.background,
-            -- hover colors
-            create_callback = function(self, t, index, tt)
-                -- change bg color when hovering
-                self:connect_signal('mouse::enter', function()
-                    if self.bg ~= beautiful.taglist_bg_hover then
-                        self.backup = self.bg
-                        self.has_backup = true
-                    end
-                    self.bg = beautiful.taglist_bg_hover
-                end)
-                -- restore bg color when leaving hover
-                self:connect_signal('mouse::leave', function()
-                    if self.has_backup then self.bg = self.backup end
-                end)
-                -- give tooltip
-                self.tooltip = awful.tooltip({
-                    objects = { self },
-                    text = 'view tag ' .. tostring(index)
-                })
-                -- update
-                update_taglist_tag(self, t, index, tt)
-            end,
-            update_callback = update_taglist_tag
-        },
-        buttons = taglist_buttons
-    })
+--    s.mytaglist = awful.widget.taglist({
+--        screen  = s,
+--        filter  = awful.widget.taglist.filter.all,
+--        layout = {
+--            layout = wibox.layout.fixed.horizontal
+--        },
+--        widget_template = {
+--        -- main template for tag items
+--            {--container for tag items
+--                {--layout for tag items
+--                    { -- background container with tag shape
+--                        {-- margin container for index textbox
+--                            {-- index textbox
+--                                id = "index_role",
+--                                widget = wibox.widget.textbox,
+--                            },
+--                            left = 9,
+--                            widget = wibox.container.margin
+--                        },
+--
+--                        bg = beautiful.taglist_shape,
+--                        shape = gears.shape.rectangular_tag,
+--                        shape_border_width = 1.5,
+--                        shape_border_color =
+--                            beautiful.taglist_shape_border,
+--                        id = "background_shape",
+--                        widget = wibox.container.background,
+--                        forced_width = 36
+--                    },
+--                    { -- spacer?
+--                        margins = 1,
+--                        widget = wibox.container.margin
+--                    },
+--                    layout = wibox.layout.fixed.horizontal,
+--                },
+--                left = 2,
+--                right = 2,
+--                top = 5,
+--                bottom = 5,
+--                widget = wibox.container.margin
+--            },
+--            widget = wibox.container.background,
+--            -- hover colors
+--            create_callback = function(self, t, index, tt)
+--                -- change bg color when hovering
+--                self:connect_signal('mouse::enter', function()
+--                    if self.bg ~= beautiful.taglist_bg_hover then
+--                        self.backup = self.bg
+--                        self.has_backup = true
+--                    end
+--                    self.bg = beautiful.taglist_bg_hover
+--                end)
+--                -- restore bg color when leaving hover
+--                self:connect_signal('mouse::leave', function()
+--                    if self.has_backup then self.bg = self.backup end
+--                end)
+--                -- give tooltip
+--                self.tooltip = awful.tooltip({
+--                    objects = { self },
+--                    text = 'view tag ' .. tostring(index)
+--                })
+--                -- update
+--                update_taglist_tag(self, t, index, tt)
+--            end,
+--            update_callback = update_taglist_tag
+--        },
+--        buttons = taglist_buttons
+--    })
 
     ------------------------------------------------------------------
     -- TASKLIST WIDGET                                              --
@@ -1270,7 +1269,7 @@ awful.screen.connect_for_each_screen(function(s)
             spacey,
             arright,
             spacey,
-            s.mytaglist,
+--            s.mytaglist,
             spacey,
             {
                 widget = wibox.container.margin,
