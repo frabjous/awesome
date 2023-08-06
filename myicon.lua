@@ -37,6 +37,9 @@ function myicon(name, class)
     if (name:match('nvimpager$')) then
         return ''
     end
+    if (name:match('tail')) then
+        return ''
+    end
     if ((name:match('nvim$')) or (name:match("^wezterm nvim")) or
         (name:match('^wezterm $EDITOR'))) then
         return ''

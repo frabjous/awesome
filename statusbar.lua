@@ -787,6 +787,7 @@ local arright = wibox.widget {
 --end
 
 function fixwname(cname)
+    if (cname == 'tail') then cname = 'logs' end
     if (cname == '~') then cname = '~ wezterm' end
     if (cname == 'wezterm ~') then cname = '~ wezterm' end
     if (cname:match('^wezterm ')) then cname = cname:sub(9) end
