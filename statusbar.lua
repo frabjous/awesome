@@ -789,7 +789,7 @@ function update_taglist_tag(widg, t, index, tt)
 end
 
 function fixwname(cname)
-    if (cname == '~') then cname = '~ kitty' end
+    if (cname == '~') then cname = '~ wezterm' end
     if (cname == 'wezterm ~') then cname = '~ wezterm' end
     if (cname:match('^wezterm ')) then cname = cname:sub(9) end
     cname = cname:gsub('$EDITOR',os.getenv('EDITOR'))
