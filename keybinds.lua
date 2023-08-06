@@ -12,11 +12,11 @@ menubar.utils.terminal = RC.vars.terminal
 -- Mouse bindings
 root.buttons(gears.table.join(
     -- left clicking root window brings up menu
-    awful.button({ }, 3, function () RC.mainmenu.mymainmenu:toggle() end),
+    awful.button({ }, 3, function () RC.mainmenu.mymainmenu:toggle() end)
     -- wheel down root window goes to next tag
-    awful.button({ }, 4, awful.tag.viewnext),
+    --awful.button({ }, 4, awful.tag.viewnext),
     -- wheel up root window goes to prev tag
-    awful.button({ }, 5, awful.tag.viewprev)
+    --awful.button({ }, 5, awful.tag.viewprev)
 ))
 
 -- Key bindings
@@ -24,17 +24,17 @@ globalkeys = gears.table.join(
     -- super F1 shows keybindings
     awful.key({ RC.vars.modkey }, "F1", hotkeys_popup.show_help,
         { description="show help", group = "Super" }),
-    -- super left = previous tag
+    -- alt ctrl left = previous tag (rarely used now)
     awful.key({ "Control", RC.vars.altkey }, "Left", awful.tag.viewprev,
         { description = "view previous tag", group = "Alt-Ctrl" }),
-    -- super right = next tag
+    -- alt ctrl right = next tag (rarely used now)
     awful.key({ "Control", RC.vars.altkey }, "Right", awful.tag.viewnext,
         { description = "view next tag", group = "Alt-Ctrl" }),
     -- super shift escape = restore previous tag history
-    awful.key({ RC.vars.modkey, "Shift" }, "Escape",
-        awful.tag.history.restore,
-        { description = "go back", group = "Shift-Super" }
-    ),
+    --awful.key({ RC.vars.modkey, "Shift" }, "Escape",
+        --awful.tag.history.restore,
+        --{ description = "go back", group = "Shift-Super" }
+    --),
     -- alt super right bracket focus next client (old way)
     awful.key({ RC.vars.modkey, RC.vars.altkey }, "]",
         function ()
@@ -258,7 +258,7 @@ globalkeys = gears.table.join(
         { description = "dropdown terminal", group = "Normal" }),
     awful.key({ RC.vars.modkey }, "`", function() RC.dropdowns.quake:toggle() end,
         { description = "dropdown terminal", group = "Super" }),
-    -- Super print or shift Print or Super F12 or shift F12 
+    -- Super print or shift Print or Super F12 or shift F12
     -- or Super Shift backtick for quake scratchpad
     awful.key({ RC.vars.modkey }, "Print", function()
             RC.dropdowns.scratch:toggle()
@@ -365,7 +365,7 @@ globalkeys = gears.table.join(
         end,
         { description = "magnifier layout", group = "Shift-Super" }
     ),
-    -- super e for fair layout
+    -- shift super f for fair layout
     awful.key({ RC.vars.modkey, "Shift" }, "f", function()
             awful.layout.set(awful.layout.suit.fair)
         end,
@@ -582,7 +582,7 @@ clientkeys = gears.table.join(
         end,
         { description = "minimize", group = "Super" }
     ),
-    -- super m to toggle maximized
+    -- super b to toggle maximized
     awful.key({ RC.vars.modkey }, "b",
         function (c)
             c.maximized = not c.maximized
@@ -713,11 +713,11 @@ clientbuttons = gears.table.join(
     awful.button({ RC.vars.modkey }, 3, function (c)
         c:emit_signal("request::activate", "mouse_click", { raise = true })
         awful.mouse.client.resize(c)
-    end),
-    -- super shift right click to open context menu (TODO: fix this?)
-    awful.button({ RC.vars.modkey, "Shift" }, 3, function(c)
-        clientactions.context_menu(c)
     end)
+    -- super shift right click to open context menu (TODO: fix this?)
+    --awful.button({ RC.vars.modkey, "Shift" }, 3, function(c)
+        --clientactions.context_menu(c)
+    --end)
 )
 
 -- Set keys
