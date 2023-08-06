@@ -359,6 +359,17 @@ globalkeys = gears.table.join(
         end,
         { description = "master on right", group = "Super" }
     ),
+    -- super m for max layout
+    awful.key({ RC.vars.modkey, RC.vars.altkey }, "m", function()
+            if (awful.layout.get(awful.screen.focused()) ==
+                awful.layout.suit.max) then
+                awful.layout.set(awful.layout.suit.tile)
+            else
+                awful.layout.set(awful.layout.suit.max)
+            end
+        end,
+        { description = "max layout", group = "Alt-Super" }
+    ),
     -- super shift z for magnifier layout
     awful.key({ RC.vars.modkey, "Shift" }, "z", function()
             awful.layout.set(awful.layout.suit.magnifier)
@@ -607,20 +618,20 @@ clientkeys = gears.table.join(
         { description = "(un)maximize horizontally",
             group = "Shift-Super" }
     ),
-        -- super m to make only showing client on screen
-        awful.key({ RC.vars.modkey }, "m",
-            function(c)
-                local numminimized = 
-                    clientactions.make_only_on_screen(c,
-                        awful.screen.focused()
-                    )
-                if (numminimized == 0) then
-                    clientactions.unminimize_all_peers(c)
-                end
-            end,
-            { description = "toggle only on screen",
-                group = "Super" }
-        ),
+    -- alt-super m to make only showing client on screen
+    awful.key({ RC.vars.modkey }, "m",
+        function(c)
+            local numminimized = 
+                clientactions.make_only_on_screen(c,
+                    awful.screen.focused()
+                )
+            if (numminimized == 0) then
+                clientactions.unminimize_all_peers(c)
+            end
+        end,
+        { description = "toggle only on screen",
+            group = "Super" }
+    ),
     -- super right bracket focus next client (smart way)
     awful.key({ RC.vars.modkey }, "]",
         function (c)
