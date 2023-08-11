@@ -29,8 +29,10 @@ if not (gears.filesystem.dir_readable('/tmp/awesome.started')) then
 end
 -- dropdown terminal
 local quake = lain.util.quake({
-    app = "wezterm",
-    argname = "start --class %s",
+    --app = "wezterm",
+    app = "kitty",
+    --argname = "start --class %s",
+    argname = "--class %s",
     followtag = true,
     height = 0.4,
     width = 0.99,
@@ -40,10 +42,12 @@ local quake = lain.util.quake({
 
 -- scratchpad
 local scratch = lain.util.quake({
-    app = "wezterm",
+    -- app = "wezterm",
+    app = "kitty",
     extra = "-- nvim " .. os.getenv("HOME") .. "/notes/scratch.md",
     name = "QuakeSP",
-    argname = "start --class %s",
+    argname = "--class %s",
+    -- argname = "start --class %s",
     followtag = true,
     height = 0.4,
     width = 0.99,

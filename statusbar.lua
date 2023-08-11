@@ -135,7 +135,8 @@ mpd.widget:buttons(awful.util.table.join(
         RC.statusbar.mpdtogglemenu:toggle()
     end),
     awful.button({}, 2, function() -- middle click
-        awful.spawn("wezterm start --class info_term -- currentlyrics.sh")
+        -- awful.spawn("wezterm start --class info_term -- currentlyrics.sh")
+        awful.spawn("kitty --class info_term -- currentlyrics.sh")
     end),
     awful.button({}, 4, function() -- scroll up
         awful.spawn.easy_async("mpc prev",
@@ -180,7 +181,8 @@ mpd.widget.infow:buttons(awful.util.table.join(
         end)
     end),
     awful.button({}, 2, function() -- middle click
-        awful.spawn("wezterm start --class info_term -- currentlyrics.sh")
+        -- awful.spawn("wezterm start --class info_term -- currentlyrics.sh")
+        awful.spawn("kitty --class info_term -- currentlyrics.sh")
     end),
     awful.button({}, 3, function()  -- right click
         RC.statusbar.mpdtogglemenu:toggle()
@@ -221,9 +223,13 @@ _M.mpdtogglemenu = awful.menu({ items = {
     { "repeat on",   function() run_n_update("mpc repeat on")   end },
     { "repeat off",  function() run_n_update("mpc repeat off")  end },
     { "clear queue", function() run_n_update("mpc clear")       end },
-    { "show lyrics", "wezterm start --class info_term -- " ..
+    { "show lyrics", 
+        --"wezterm start --class info_term -- " ..
+        "kitty --class info_term -- " ..
         "currentlyrics.sh" },
-    { "browse music", "wezterm start --class music_browse -- " ..
+    { "browse music",
+        -- "wezterm start --class music_browse -- " ..
+        "kitty --class music_browse -- " ..
         "musicbrowse.sh" },
     { "media player page", "pimediaapp" }
 }})
@@ -541,7 +547,8 @@ musicbrowsew:buttons(gears.table.join(
     musicbrowsew:buttons(),
     awful.button({}, 1, nil, function() -- left click for music browsing
         awful.spawn(
-            'wezterm start --class music_browse -- musicbrowse.sh'
+            -- 'wezterm start --class music_browse -- musicbrowse.sh'
+            'kitty --class music_browse -- musicbrowse.sh'
         )
     end),
     awful.button({}, 3, nil, function() -- right click for browser
@@ -788,7 +795,7 @@ local arright = wibox.widget {
 
 function fixwname(cname)
     if (cname == 'tail') then cname = 'logs' end
-    if (cname == '~') then cname = '~ wezterm' end
+    if (cname == '~') then cname = '~ kitty' end
     if (cname == 'wezterm ~') then cname = '~ wezterm' end
     if (cname:match('^wezterm ')) then cname = cname:sub(9) end
     cname = cname:gsub('$EDITOR',os.getenv('EDITOR'))
@@ -1114,40 +1121,48 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytextclock:buttons(),
         -- left click for today's schedule
         awful.button({}, 1, nil, function()
-            awful.spawn('wezterm start --class info_term -- ' ..
+            awful.spawn(
+                --'wezterm start --class info_term -- ' ..
+                'kitty --class info_term -- ' ..
                 'sched.sh delay')
         end),
         -- right click for another day's schedule
         awful.button({}, 3, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- ' ..
+                --'wezterm start --class info_term -- ' ..
+                'kitty --class info_term -- ' ..
                     'sched.sh delay another'
             )
         end),
         -- any modifier + click for scheduling
         awful.button({ RC.vars.modkey }, 1, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- sched.sh delay add'
+                --'wezterm start --class info_term -- sched.sh delay add'
+                'kitty --class info_term -- sched.sh delay add'
             )
         end),
         awful.button({ RC.vars.altkey }, 1, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- sched.sh delay add'
+                --'wezterm start --class info_term -- sched.sh delay add'
+                'kitty --class info_term -- sched.sh delay add'
             )
         end),
         awful.button({ "Shift" }, 1, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- sched.sh delay add'
+                --'wezterm start --class info_term -- sched.sh delay add'
+                'kitty --class info_term -- sched.sh delay add'
             )
         end),
         awful.button({ "Control" }, 1, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- sched.sh delay add'
+                --'wezterm start --class info_term -- sched.sh delay add'
+                'kitty --class info_term -- sched.sh delay add'
             )
         end),
         awful.button({}, 2, nil, function()
             awful.spawn(
-                'wezterm start --class info_term -- sched.sh delay add'
+                --'wezterm start --class info_term -- sched.sh delay add'
+                'kitty --class info_term -- sched.sh delay add'
             )
         end)
     ))

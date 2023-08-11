@@ -107,19 +107,22 @@ globalkeys = gears.table.join(
     -- Standard program
     -- super return to spawn terminal
     awful.key({ RC.vars.modkey }, "Return", function ()
-            awful.spawn(RC.vars.terminal .. ' start' )
+            --awful.spawn(RC.vars.terminal .. ' start' )
+            awful.spawn(RC.vars.terminal)
         end,
         { description = "terminal", group = "Super" }
     ),
     -- super shift return to spawn floating terminal
     awful.key({ RC.vars.modkey, "Shift" }, "Return", function ()
-            awful.spawn(RC.vars.terminal .. ' start --class float_term')
+            -- awful.spawn(RC.vars.terminal .. ' start --class float_term')
+            awful.spawn(RC.vars.terminal .. ' --class float_term')
         end,
         { description = "floating terminal", group = "Shift-Super" }
     ),
     -- super w to open ssh to work
     awful.key({ RC.vars.modkey }, "w", function()
-            awful.spawn('wezterm ssh work')
+            --awful.spawn('wezterm ssh work')
+            awful.spawn('kitty -- ssh work')
         end,
         { description = "ssh work", group = "Super" }
     ),
@@ -208,7 +211,8 @@ globalkeys = gears.table.join(
     ),
     -- super t for latex test file
     awful.key({ RC.vars.modkey }, "t", function()
-            awful.spawn(RC.vars.terminal .. ' start -- nvim ' ..
+            --awful.spawn(RC.vars.terminal .. ' start -- nvim ' ..
+            awful.spawn(RC.vars.terminal .. ' -- nvim ' ..
                 os.getenv("HOME") .. '/tmp/scratch.tex')
         end,
         { description = "latex test", group = "Super" }
@@ -224,7 +228,8 @@ globalkeys = gears.table.join(
     -- super F2 to browse music collection with terminal
     awful.key({ RC.vars.modkey }, "F2", function()
             awful.spawn(RC.vars.terminal ..
-                ' start --class music_browse -- musicbrowse.sh')
+                --' start --class music_browse -- musicbrowse.sh')
+                '--class music_browse -- musicbrowse.sh')
         end,
         { description = "browse music", group = "Super" }
     ),

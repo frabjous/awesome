@@ -11,7 +11,7 @@ For a video of the output: [YouTube Link](https://www.youtube.com/watch?v=YmlSYy
 (3) [bwm-ng](https://www.gropp.org/?id=projects&sub=bwm-ng) for the bandwidth monitor; if using wifi it presupposes you're using [iwd](https://iwd.wiki.kernel.org/), but could be changed.
 (4) [mpd](https://www.musicpd.org/) with [mpc](https://www.musicpd.org/clients/mpc/) for the music widget
 (5) [clipmenu](https://github.com/cdown/clipmenu) and [rofi](https://github.com/davatorium/rofi) for the clipboard widget
-(6) [wezterm](https://wezfurlong.org/wezterm/) is the default terminal and [neovim](https://neovim.io/) the default editor.
+(6) [wezterm](https://wezfurlong.org/wezterm/) is the default terminal and [neovim](https://neovim.io/) the default editor. (Note, I have since the video switched back to [kitty](https://sw.kovidgoyal.net/kitty/) from wezterm.)
 
 There may be other things. I wasn't really intending to make these public. As is, there are some scripts called when you click things, and Firefox profiles, that won't be available; but hopefully you can modify to suit.
 
