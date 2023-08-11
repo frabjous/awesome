@@ -103,7 +103,8 @@ local importantkeys = {
 
 local outputfile = os.getenv("HOME") .. "/misc/dotfiles/awesome/xdgmenu.lua"
 
-local termcmd='wezterm start --'
+local termcmd='kitty'
+-- local termcmd='wezterm start --'
 ----------------------------------------
 -- FUNCTIONS
 ----------------------------------------
