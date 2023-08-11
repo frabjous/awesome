@@ -1289,8 +1289,8 @@ awful.screen.connect_for_each_screen(function(s)
                 widget = wibox.container.margin,
                 left = 0,
                 right = 0,
-                top = 7,
-                bottom = 7,
+                top = 6,
+                bottom = 6,
                 {
                     layout = wibox.layout.fixed.horizontal,
                     s.mylayoutbox,
