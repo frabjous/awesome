@@ -39,13 +39,13 @@ local _M = {}
 
 -- Buttons for tasklist *** highly specialized now?
 tasklist_buttons = gears.table.join(
-    -- left click toggles whether window is showing
-    awful.button({}, 1, function (c)
+    -- right click toggles whether window is showing
+    awful.button({}, 3, function (c)
         -- toggle whether showing
         clientactions.toggle_showing(c)
     end),
-    -- right click focuses exclusively
-    awful.button({}, 3, function(c)
+    -- left click focuses exclusively
+    awful.button({}, 1, function(c)
         -- OLD BEHAVIOR: mini menu
         -- awful.menu.client_list({ theme = { width = 250 } })
         -- new behavior: make it the only active window on screen
